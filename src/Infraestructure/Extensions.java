@@ -14,5 +14,6 @@ public class Extensions {
         IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);
         IServiceCollection.AddScoped(IAeronaveRepository.class, AeronaveRepository.class);
         IServiceCollection.AddScoped(IAsientoRepository.class, AsientoRepository.class);
+        IServiceCollection.AddScoped(IMarcaRepository.class, MarcaRepository.class);
     }
 }

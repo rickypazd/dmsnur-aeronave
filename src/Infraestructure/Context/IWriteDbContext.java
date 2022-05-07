@@ -2,6 +2,7 @@ package Infraestructure.Context;
 
 import Domain.Model.Aeronaves.Aeronave;
 import Domain.Model.Aeronaves.Asiento;
+import Domain.Model.Marcas.Marca;
 import SharedKernel.db.DbContext;
 import SharedKernel.db.DbSet;
 
@@ -13,4 +14,5 @@ public abstract class IWriteDbContext extends DbContext {
 
     public DbSet<Aeronave> Aeronave;
     public DbSet<Asiento> Asiento;
+    public DbSet<Marca> Marca;
 }

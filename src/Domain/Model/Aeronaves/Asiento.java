@@ -6,7 +6,7 @@ import SharedKernel.core.Entity;
 
 public class Asiento extends Entity<UUID> {
 
-    public UUID keyAeronave;
+    public UUID keyAeronave;    
     public int numero;
     public String clase;
 
