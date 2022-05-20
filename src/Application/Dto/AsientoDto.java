@@ -3,9 +3,11 @@ package Application.Dto;
 import java.util.UUID;
 
 public class AsientoDto {
-    private UUID keyAeronave;
-    private int numero;
-    private String clase;
+
+    public UUID key;
+    public UUID keyAeronave;
+    public int numero;
+    public String clase;
 
 
     public AsientoDto() {

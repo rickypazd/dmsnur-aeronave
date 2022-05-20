@@ -19,7 +19,6 @@ public class UnitOfWork implements IUnitOfWork {
 
     @Override
     public void commit() throws HttpException {
-
         List<DomainEvent> events = _context.getDomainEvents();
         for (DomainEvent domainEvent : events) {
             _mediator.notify(domainEvent);

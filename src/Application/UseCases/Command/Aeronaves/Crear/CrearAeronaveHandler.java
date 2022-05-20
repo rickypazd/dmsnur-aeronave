@@ -24,7 +24,6 @@ public class CrearAeronaveHandler implements RequestHandler<CrearAeronaveCommand
     public Aeronave handle(CrearAeronaveCommand request) throws HttpException {
         Aeronave aeronave = _aeronaveFactory.Create(request.matricula);
         aeronave.eventCreado();
-
         _aeronaveRepository.Create(aeronave);
         _unitOfWork.commit();
         return aeronave;
