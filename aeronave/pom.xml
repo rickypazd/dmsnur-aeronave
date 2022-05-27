@@ -20,13 +20,17 @@
   </properties>
   <dependencies>
     <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>1.10.19</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-   
-  
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -94,6 +98,27 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        
+        <!-- JACOCO for test coverage -->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.8.4</version>
+          <executions>
+              <execution>
+                  <goals>
+                      <goal>prepare-agent</goal>
+                  </goals>
+              </execution>
+              <execution>
+                  <id>report</id>
+                  <phase>prepare-package</phase>
+                  <goals>
+                      <goal>report</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
       </plugins>
     </pluginManagement>
   </build>

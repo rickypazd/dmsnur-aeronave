@@ -1,7 +1,6 @@
 package dmsnur.Application.UseCases.Command.Aeronaves.Crear;
 
 import java.util.List;
-import java.util.UUID;
 
 import dmsnur.Application.Dto.AeronaveDto;
 import dmsnur.Application.Dto.AsientoDto;
@@ -15,7 +14,6 @@ public class CrearAeronaveCommand implements Request<AeronaveDto> {
     }
 
     public String matricula;
-
     public List<AsientoDto> asientos;
 
     public List<AsientoDto> getAsientos() {
