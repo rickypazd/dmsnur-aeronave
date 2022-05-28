@@ -1,5 +1,4 @@
 Dto/AsientoDto_Test.class
 UseCases/Command/Aeronaves/Crear/CrearAeronaveHandler_Test.class
 Dto/AeronaveDto_Test.class
-App_test.class
 UseCases/Command/Aeronaves/Crear/CrearAeronaveCommand_Test.class

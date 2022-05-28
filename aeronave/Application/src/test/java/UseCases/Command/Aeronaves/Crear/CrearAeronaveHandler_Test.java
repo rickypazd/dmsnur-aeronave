@@ -4,6 +4,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -16,11 +17,18 @@ import Repositories.IUnitOfWork;
 import fourteam.http.Exception.HttpException;
 
 public class CrearAeronaveHandler_Test {
+
     IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
     IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
     IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
-    
+    public CrearAeronaveHandler_Test() {
+    }
+    @Before
+    public void setUp() {
+        
+    }
+
     @Test
     public void HandleCorrectly() throws HttpException {
         String matricula = "ASD";
