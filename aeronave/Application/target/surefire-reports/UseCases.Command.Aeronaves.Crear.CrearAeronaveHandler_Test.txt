@@ -1,10 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.089 s <<< FAILURE! - in UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test
-HandleCorrectly(UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test)  Time elapsed: 0.088 s  <<< ERROR!
-java.lang.ExceptionInInitializerError
-	at UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test.<init>(CrearAeronaveHandler_Test.java:21)
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @685fa119
-	at UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test.<init>(CrearAeronaveHandler_Test.java:21)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.001 s - in UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test

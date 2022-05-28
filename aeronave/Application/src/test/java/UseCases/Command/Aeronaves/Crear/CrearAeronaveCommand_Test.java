@@ -11,7 +11,7 @@ public class CrearAeronaveCommand_Test {
     public void dataValid() {
         String matricula = "XYC";
         AeronaveDto aeronave = new AeronaveDto();
-        aeronave.matricula = matricula;
+        aeronave.setMatricula(matricula);
         CrearAeronaveCommand command = new CrearAeronaveCommand(aeronave);
         Assert.assertEquals(matricula, command.matricula);
     }

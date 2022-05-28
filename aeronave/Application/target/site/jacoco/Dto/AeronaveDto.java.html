@@ -14,12 +14,24 @@ public class AeronaveDto {
 <span class="fc" id="L14">        asientos = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L15">    }</span>
 
+    public void setKey(UUID key) {
+<span class="fc" id="L18">        this.key = key;</span>
+<span class="fc" id="L19">    }</span>
+    public void setMatricula(String matricula) {
+<span class="fc" id="L21">        this.matricula = matricula;</span>
+<span class="fc" id="L22">    }</span>
+    public UUID getKey() {
+<span class="fc" id="L24">        return key;</span>
+    }
+    public String getMatricula() {
+<span class="fc" id="L27">        return matricula;</span>
+    }
     public void setAsientos(List&lt;AsientoDto&gt; asientos) {
-<span class="nc" id="L18">        this.asientos = asientos;</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L30">        this.asientos = asientos;</span>
+<span class="fc" id="L31">    }</span>
 
     public List&lt;AsientoDto&gt; getAsientos() {
-<span class="nc" id="L22">        return asientos;</span>
+<span class="fc" id="L34">        return asientos;</span>
     }
 
 }

@@ -14,13 +14,5 @@ public class CrearAeronaveCommand implements Request<AeronaveDto> {
     }
 
     public String matricula;
-    public List<AsientoDto> asientos;
-
-    public List<AsientoDto> getAsientos() {
-        return asientos;
-    }
-
-    public void setAsientos(List<AsientoDto> asientos) {
-        this.asientos = asientos;
-    }
+   
 }

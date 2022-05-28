@@ -22,8 +22,7 @@ public class CrearAeronaveHandler_Test {
     IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
     IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
-    public CrearAeronaveHandler_Test() {
-    }
+
     @Before
     public void setUp() {
         

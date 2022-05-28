@@ -1,4 +1,5 @@
 /Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Application/src/test/java/Dto/AsientoDto_Test.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Application/src/test/java/Dto/MarcaDto_Test.java
 /Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Application/src/test/java/UseCases/Command/Aeronaves/Crear/CrearAeronaveCommand_Test.java
 /Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Application/src/test/java/Dto/AeronaveDto_Test.java
 /Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Application/src/test/java/UseCases/Command/Aeronaves/Crear/CrearAeronaveHandler_Test.java

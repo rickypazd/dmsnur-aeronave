@@ -14,6 +14,18 @@ public class AeronaveDto {
         asientos = new ArrayList<>();
     }
 
+    public void setKey(UUID key) {
+        this.key = key;
+    }
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+    public UUID getKey() {
+        return key;
+    }
+    public String getMatricula() {
+        return matricula;
+    }
     public void setAsientos(List<AsientoDto> asientos) {
         this.asientos = asientos;
     }

@@ -20,12 +20,12 @@ public class AeronaveDto_Test {
         Assert.assertNull(aeronave.matricula);
         Assert.assertNotNull(aeronave.asientos);
         Assert.assertEquals(0, aeronave.asientos.size());
-        aeronave.key = key;
-        aeronave.matricula = matricula;
-        aeronave.asientos = asientos;
-        Assert.assertEquals(key, aeronave.key);
-        Assert.assertEquals(matricula, aeronave.matricula);
-        Assert.assertEquals(asientos, aeronave.asientos);
+        aeronave.setKey(key);
+        aeronave.setMatricula(matricula);
+        aeronave.setAsientos(asientos);
+        Assert.assertEquals(key, aeronave.getKey());
+        Assert.assertEquals(matricula, aeronave.getMatricula());
+        Assert.assertEquals(asientos, aeronave.getAsientos());
     }
 
     private List<AsientoDto> getAsientos() {
