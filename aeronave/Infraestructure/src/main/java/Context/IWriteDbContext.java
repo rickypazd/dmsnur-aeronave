@@ -3,8 +3,8 @@ package Context;
 import Model.Aeronaves.Aeronave;
 import Model.Aeronaves.Asiento;
 import Model.Marcas.Marca;
-import db.DbContext;
-import db.DbSet;
+import fourteam.db.DbContext;
+import fourteam.db.DbSet;
 
 public abstract class IWriteDbContext extends DbContext {
 

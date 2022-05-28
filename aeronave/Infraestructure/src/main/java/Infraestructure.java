@@ -1,6 +1,6 @@
 
 import Repositories.*;
-import extensions.IServiceCollection;
+import fourteam.extensions.IServiceCollection;
 import Context.IWriteDbContext;
 import Repository.*;
 

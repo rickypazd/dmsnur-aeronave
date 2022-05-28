@@ -7,9 +7,9 @@ import Model.Marcas.Marca;
 import Repositories.IAeronaveRepository;
 import Repositories.IMarcaRepository;
 import Repositories.IUnitOfWork;
-import http.HttpStatus;
-import http.Exception.HttpException;
-import mediator.RequestHandler;
+import fourteam.http.HttpStatus;
+import fourteam.http.Exception.HttpException;
+import fourteam.mediator.RequestHandler;
 
 public class EditarMarcaHandler implements RequestHandler<EditarMarcaCommand, Marca> {
 

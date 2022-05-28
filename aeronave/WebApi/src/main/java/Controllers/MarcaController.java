@@ -10,10 +10,10 @@ import UseCases.Queries.Marcas.GetAll.GetAllMarcaQuery;
 import UseCases.Queries.Marcas.GetByKey.GetMarcaByKeyQuery;
 import Model.Marcas.*;
 import Model.Marcas.Marca;
-import http.Exception.HttpException;
-import http.annotation.*;
-import mediator.Mediator;
-import mediator.Response;
+import fourteam.http.Exception.HttpException;
+import fourteam.http.annotation.*;
+import fourteam.mediator.Mediator;
+import fourteam.mediator.Response;
 
 @RestController
 @RequestMapping("/marca")

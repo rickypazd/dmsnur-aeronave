@@ -15,8 +15,8 @@ import com.mongodb.client.model.Updates;
 import org.bson.Document;
 
 import Context.IWriteDbContext;
-import json.JSON;
-import db.DbSet;
+import fourteam.JSON;
+import fourteam.db.DbSet;
 
 public class WriteDbContext extends IWriteDbContext {
 

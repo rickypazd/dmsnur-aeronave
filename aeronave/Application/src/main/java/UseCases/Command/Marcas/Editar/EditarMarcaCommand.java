@@ -3,7 +3,7 @@ package UseCases.Command.Marcas.Editar;
 import java.util.UUID;
 
 import Dto.MarcaDto;
-import mediator.Request;
+import fourteam.mediator.Request;
 
 public class EditarMarcaCommand implements Request<MarcaDto> {
 

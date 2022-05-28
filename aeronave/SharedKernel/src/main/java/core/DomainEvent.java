@@ -3,7 +3,7 @@ package core;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import mediator.Notification;
+import fourteam.mediator.Notification;
 
 public class DomainEvent implements Notification {
 

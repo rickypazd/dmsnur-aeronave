@@ -3,7 +3,7 @@ package UseCases.Queries.Aeronaves.GetAll;
 import java.util.List;
 import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
-import mediator.RequestHandler;
+import fourteam.mediator.RequestHandler;
 
 public class GetAllAeronaveHandler implements RequestHandler<GetAllAeronaveQuery, List<Aeronave>> {
 

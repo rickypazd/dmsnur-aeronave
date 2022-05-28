@@ -4,9 +4,9 @@ import Dto.AeronaveDto;
 import Dto.AsientoDto;
 import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
-import http.HttpStatus;
-import http.Exception.HttpException;
-import mediator.RequestHandler;
+import fourteam.http.HttpStatus;
+import fourteam.http.Exception.HttpException;
+import fourteam.mediator.RequestHandler;
 
 public class GetAeronaveByKeyHandler implements RequestHandler<GetAeronaveByKeyQuery, AeronaveDto> {
 

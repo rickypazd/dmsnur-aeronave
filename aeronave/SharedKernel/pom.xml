@@ -13,18 +13,13 @@
   <version>1.0</version>
 
   <dependencies>
+
     <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.9.0</version>
+      <groupId>dmsnur</groupId>
+      <artifactId>fourteam</artifactId>
+      <version>1.0</version>
     </dependency>
-    <dependency>
-      <groupId>org.jboss.com.sun.httpserver</groupId>
-      <artifactId>httpserver</artifactId>
-      <version>1.0.8.Final</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/lib/httpserver-1.0.8.Final.jar</systemPath>
-    </dependency>
+   
   </dependencies>
 
 </project>

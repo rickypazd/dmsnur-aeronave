@@ -10,11 +10,11 @@ import UseCases.Command.Aeronaves.Eliminar.EliminarAeronaveCommand;
 import UseCases.Queries.Aeronaves.GetAll.GetAllAeronaveQuery;
 import UseCases.Queries.Aeronaves.GetByKey.GetAeronaveByKeyQuery;
 import Model.Aeronaves.*;
-import http.Exception.HttpException;
-import http.annotation.*;
-import mediator.Mediator;
-import mediator.Request;
-import mediator.Response;
+import fourteam.http.Exception.HttpException;
+import fourteam.http.annotation.*;
+import fourteam.mediator.Mediator;
+import fourteam.mediator.Request;
+import fourteam.mediator.Response;
 
 @RestController
 @RequestMapping("/aeronave")

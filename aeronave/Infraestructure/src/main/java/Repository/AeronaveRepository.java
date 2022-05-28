@@ -6,7 +6,7 @@ import java.util.UUID;
 import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
 import Context.IWriteDbContext;
-import db.DbSet;
+import fourteam.db.DbSet;
 
 public class AeronaveRepository implements IAeronaveRepository {
 

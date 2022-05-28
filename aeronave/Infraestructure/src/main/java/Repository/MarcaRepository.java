@@ -6,7 +6,7 @@ import java.util.UUID;
 import Model.Marcas.Marca;
 import Repositories.IMarcaRepository;
 import Context.IWriteDbContext;
-import db.DbSet;
+import fourteam.db.DbSet;
 
 public class MarcaRepository implements IMarcaRepository {
 

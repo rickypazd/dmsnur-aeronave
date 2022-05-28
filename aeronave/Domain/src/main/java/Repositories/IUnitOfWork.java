@@ -1,6 +1,6 @@
 package Repositories;
 
-import http.Exception.HttpException;
+import fourteam.http.Exception.HttpException;
 
 public interface IUnitOfWork {
     //TODO: change void for task

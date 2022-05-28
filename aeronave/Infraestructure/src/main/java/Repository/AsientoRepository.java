@@ -5,7 +5,7 @@ import java.util.UUID;
 import Model.Aeronaves.Asiento;
 import Repositories.IAsientoRepository;
 import Context.IWriteDbContext;
-import db.DbSet;
+import fourteam.db.DbSet;
 
 public class AsientoRepository implements IAsientoRepository {
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import Dto.AeronaveDto;
 import Dto.AsientoDto;
-import mediator.Request;
+import fourteam.mediator.Request;
 
 public class CrearAeronaveCommand implements Request<AeronaveDto> {
 

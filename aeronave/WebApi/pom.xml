@@ -23,6 +23,11 @@
       <artifactId>Infraestructure</artifactId>
       <version>1.0</version>
     </dependency>
+    <dependency>
+      <groupId>dmsnur</groupId>
+      <artifactId>fourteam</artifactId>
+      <version>1.0</version>
+    </dependency>
   </dependencies>
 
 </project>

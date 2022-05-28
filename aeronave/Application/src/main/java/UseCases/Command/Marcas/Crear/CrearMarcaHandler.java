@@ -4,8 +4,8 @@ import Factories.IMarcaFactory;
 import Model.Marcas.Marca;
 import Repositories.IMarcaRepository;
 import Repositories.IUnitOfWork;
-import http.Exception.HttpException;
-import mediator.RequestHandler;
+import fourteam.http.Exception.HttpException;
+import fourteam.mediator.RequestHandler;
 
 public class CrearMarcaHandler implements RequestHandler<CrearMarcaCommand, Marca> {
 

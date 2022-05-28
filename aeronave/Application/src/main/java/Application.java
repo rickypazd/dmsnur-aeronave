@@ -14,8 +14,8 @@ import Factories.AeronaveFactory;
 import Factories.IAeronaveFactory;
 import Factories.IMarcaFactory;
 import Factories.MarcaFactory;
-import extensions.IServiceCollection;
-import mediator.IMediator;
+import fourteam.extensions.IServiceCollection;
+import fourteam.mediator.IMediator;
 
 public class Application {
 

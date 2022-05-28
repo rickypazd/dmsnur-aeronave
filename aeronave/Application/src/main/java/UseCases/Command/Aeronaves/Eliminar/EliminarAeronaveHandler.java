@@ -4,9 +4,9 @@ import Factories.IAeronaveFactory;
 import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
 import Repositories.IUnitOfWork;
-import http.HttpStatus;
-import http.Exception.HttpException;
-import mediator.RequestHandler;
+import fourteam.http.HttpStatus;
+import fourteam.http.Exception.HttpException;
+import fourteam.mediator.RequestHandler;
 
 public class EliminarAeronaveHandler implements RequestHandler<EliminarAeronaveCommand, Aeronave> {
 

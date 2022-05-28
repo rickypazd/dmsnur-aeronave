@@ -2,8 +2,8 @@ import java.util.List;
 import Repositories.IUnitOfWork;
 import Context.MongoDB.WriteDbContext;
 import core.DomainEvent;
-import http.Exception.HttpException;
-import mediator.Mediator;
+import fourteam.http.Exception.HttpException;
+import fourteam.mediator.Mediator;
 
 public class UnitOfWork implements IUnitOfWork {
 
@@ -17,10 +17,10 @@ public class UnitOfWork implements IUnitOfWork {
 
     @Override
     public void commit() throws HttpException {
-        List<DomainEvent> events = _context.getDomainEvents();
-        for (DomainEvent domainEvent : events) {
-            _mediator.notify(domainEvent);
-        }
-        _context.Commit();
+        // List<DomainEvent> events = _context.getDomainEvents();
+        // for (DomainEvent domainEvent : events) {
+        //     _mediator.notify(domainEvent);
+        // }
+        // _context.Commit();
     }
 }

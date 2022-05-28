@@ -1,7 +1,7 @@
 package UseCases.Command.Marcas.Crear;
 
 import Dto.MarcaDto;
-import mediator.Request;
+import fourteam.mediator.Request;
 
 public class CrearMarcaCommand implements Request<MarcaDto> {
 
