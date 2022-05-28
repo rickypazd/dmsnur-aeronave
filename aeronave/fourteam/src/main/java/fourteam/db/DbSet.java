@@ -2,6 +2,7 @@ package fourteam.db;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import fourteam.mediator.Notification;
 
 public class DbSet<T> {
 
-    private List<Notification> _events;
+    private List<Object> _events;
     private DbContext _context;
 
     private String _name;
@@ -32,26 +33,45 @@ public class DbSet<T> {
         return _type;
     }
 
-    public List<Notification> get_events() {
+    public List<Object> get_events() {
         return _events;
     }
 
     private void addEvents(T obj) {
-        
-        // try {
-        //     Entity entity = (Entity) obj;
-        //     _events.addAll(entity.getDomainEvents());
-        // } catch (Exception e) {
-        //     System.err.println("Not an entity");
-        // }
-    }
 
+        System.out.println(obj);
+        Field[] arr = obj.getClass().getFields();
+        for (Field field : arr) {
+            Type t = field.getGenericType();
+            if (t instanceof ParameterizedType) {
+                ParameterizedType pt = (ParameterizedType) t;
+                Class clazz = (Class) pt.getActualTypeArguments()[0];
+                System.out.println(clazz);
+                Class[] interfaces = clazz.getInterfaces();
+                for (Class cl : interfaces) {
+                    if (cl.getName().equals(Notification.class.getName())) {
+                        try {
+                            field.setAccessible(true);
+                            List<Object> notification = (List<Object>) field.get(obj);
+                            if (notification != null) {
+                                for (Object o : notification) {
+                                    _events.add((Notification) o);
+                                }
+                            }
+                        } catch (IllegalArgumentException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     public String getName() {
         return _name;
     }
-
-
 
     public void Update(T obj, BooleanFunction<T> fun) {
         addEvents(obj);

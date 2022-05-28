@@ -8,12 +8,12 @@
   <artifactId>aeronave</artifactId>
   <version>1.0</version>
 
-  <packaging>pom</packaging>
   
   <name>aeronave</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
+  <packaging>pom</packaging>
   <modules>
     <module>Application</module>
     <module>Domain</module>
@@ -21,6 +21,7 @@
     <module>SharedKernel</module>
     <module>WebApi</module>
     <module>fourteam</module>
+    <module>Test</module>
   </modules>
 
   <properties>

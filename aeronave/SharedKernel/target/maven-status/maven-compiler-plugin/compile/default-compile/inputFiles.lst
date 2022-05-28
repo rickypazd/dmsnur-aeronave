@@ -1,0 +1,10 @@
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/DomainEvent.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/rule/StringNotNullOrEmptyRule.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/BussinessRule.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/ValueObject.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/AggregateRoot.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/BussinessRuleValidateExeption.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/IRepository.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/rule/NotNullRule.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/core/Entity.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/SharedKernel/src/main/java/SharedKernel.java

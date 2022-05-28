@@ -1,0 +1,14 @@
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Factories/AeronaveFactory.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Factories/IMarcaFactory.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Factories/IAeronaveFactory.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Model/Marcas/Marca.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Model/Aeronaves/Asiento.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Repositories/IAsientoRepository.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Domain.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Model/Aeronaves/ValueObjects/MatriculaAeronave.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Repositories/IMarcaRepository.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Repositories/IUnitOfWork.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Repositories/IAeronaveRepository.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Event/AeronaveCreado.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Model/Aeronaves/Aeronave.java
+/Users/rickypazd/Documents/GitHub/dmsnur-aeronave/aeronave/Domain/src/main/java/Factories/MarcaFactory.java

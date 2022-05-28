@@ -47,6 +47,7 @@ public class MediatorPlanNotify {
     }
 
     public void invoke(Notification notification) throws Exception {
+        
         handleMethod.invoke(instance, notification);
     }
 }

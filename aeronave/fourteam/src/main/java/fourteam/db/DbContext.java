@@ -19,8 +19,8 @@ public abstract class DbContext implements IDbContext {
         onModelCreating(_dbSets);
     }
 
-    public List<Notification> getDomainEvents() {
-        List<Notification> events = new ArrayList<>();
+    public List<Object> getDomainEvents() {
+        List<Object> events = new ArrayList<>();
         for (DbSet dbSet : _dbSets) {
             events.addAll(dbSet.get_events());
         }
@@ -33,8 +33,9 @@ public abstract class DbContext implements IDbContext {
             if (field.getType().getName().contains(fourteam.db.DbSet.class.getName())) {
                 
                 try {
-                    field.set(this, new DbSet<>(this, field));
-                    _dbSets.add((DbSet) field.get(this));
+                    DbSet db = new DbSet<>(this, field);
+                    field.set(this, db);
+                    _dbSets.add(db);
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
