@@ -24,6 +24,7 @@ import fourteam.http.annotation.PostMapping;
 import fourteam.http.annotation.PutMapping;
 import fourteam.http.annotation.RequestBody;
 import fourteam.mediator.Request;
+import fourteam.swagger.parts.Path;
 
 public class Action {
     enum ActionType {
@@ -111,54 +112,53 @@ public class Action {
     }
 
     // instance es el Controller
-    public void onMessage(HttpExchange t, Response response, String path, String data, Object instance) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, HttpException {
-            Parameter[] parameters = this.method.getParameters();
-            // Class[] paramTypes = this.method.getParameterTypes();
-            ArrayList<Object> values = new ArrayList<Object>();
-            int i_p_v = -1;
+    public void onMessage(HttpExchange t, Response response, String path, String data, Object instance)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, HttpException {
+        Parameter[] parameters = this.method.getParameters();
+        // Class[] paramTypes = this.method.getParameterTypes();
+        ArrayList<Object> values = new ArrayList<Object>();
+        int i_p_v = -1;
 
-            String[] arrp = this.route.split("/");
-            ArrayList<String> lis = new ArrayList<>();
-            for (String s : arrp) {
-                lis.add(s);
-            }
+        String[] arrp = this.route.split("/");
+        ArrayList<String> lis = new ArrayList<>();
+        for (String s : arrp) {
+            lis.add(s);
+        }
 
-            for (Parameter parameter : parameters) {
-                Object value = null;
-                Annotation annotation = parameter.getAnnotation(PathVariable.class);
-                if (annotation instanceof PathVariable) {
-                    i_p_v++;
+        for (Parameter parameter : parameters) {
+            Object value = null;
+            Annotation annotation = parameter.getAnnotation(PathVariable.class);
+            if (annotation instanceof PathVariable) {
+                i_p_v++;
 
-                    int i = lis.indexOf("{" + this.params.get(i_p_v) + "}");
-                    if (i == -1) {
-                        throw new RuntimeException("No se encontro el parametro " + this.params.get(i_p_v));
-                    }
-                    value = path.split("/")[i];
-                    values.add(parseValue(value, parameter.getType()));
-                    continue;
+                int i = lis.indexOf("{" + this.params.get(i_p_v) + "}");
+                if (i == -1) {
+                    throw new RuntimeException("No se encontro el parametro " + this.params.get(i_p_v));
                 }
-                annotation = parameter.getAnnotation(RequestBody.class);
-                if (annotation instanceof RequestBody) {
-                    values.add(parseValue(data, parameter.getType()));
-                    continue;
-                }
-
-                values.add(null);
+                value = path.split("/")[i];
+                values.add(parseValue(value, parameter.getType()));
+                continue;
+            }
+            annotation = parameter.getAnnotation(RequestBody.class);
+            if (annotation instanceof RequestBody) {
+                values.add(parseValue(data, parameter.getType()));
+                continue;
             }
 
-            // try {
-            Object resp;
-            resp = invoke(instance, values.toArray());
-            response.setCode(HttpStatus.OK);
-            if (resp instanceof fourteam.mediator.Response) {
-                fourteam.mediator.Response r = (fourteam.mediator.Response) resp;
-                r.status = response.getCode();
-                response.setBody(r.toString());
-            } else {
-                response.setBody(resp.toString());
-            }
+            values.add(null);
+        }
 
-     
+        // try {
+        Object resp;
+        resp = invoke(instance, values.toArray());
+        response.setCode(HttpStatus.OK);
+        if (resp instanceof fourteam.mediator.Response) {
+            fourteam.mediator.Response r = (fourteam.mediator.Response) resp;
+            r.status = response.getCode();
+            response.setBody(r.toString());
+        } else {
+            response.setBody(resp.toString());
+        }
 
     }
 
@@ -236,6 +236,10 @@ public class Action {
         return null;
     }
 
+    public String getMethodSwagger() {
+        return type.name().toLowerCase();
+    }
+
     public Method getMethod() {
         return method;
     }
@@ -258,6 +262,17 @@ public class Action {
 
     public void setType(ActionType type) {
         this.type = type;
+    }
+
+    public Path getPathSwagger(Controller controller, String tag) {
+        String path = controller.getRoute() + getRoute();
+        Path po = new Path(path, getMethodSwagger());
+
+        String name = getMethod().getName();
+        po.setOperationId(tag + "_" + name);
+        po.setSummary(tag + " " + name);
+        po.addTag(tag);
+        return po;
     }
 
 }
