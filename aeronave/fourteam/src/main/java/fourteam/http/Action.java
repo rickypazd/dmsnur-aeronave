@@ -267,8 +267,23 @@ public class Action {
     public Path getPathSwagger(Controller controller, String tag) {
         String path = controller.getRoute() + getRoute();
         Path po = new Path(path, getMethodSwagger());
-
         String name = getMethod().getName();
+
+        Parameter[] parameters = this.method.getParameters();
+        int cant_params = 0;
+        for (Parameter parameter : parameters) {
+            Annotation annotation = parameter.getAnnotation(PathVariable.class);
+            if (annotation instanceof PathVariable) {
+                fourteam.swagger.parts.Parameter pars = new fourteam.swagger.parts.Parameter(
+                        this.params.get(cant_params), "path", true);
+                cant_params++;
+                po.addParameter(pars);
+            }
+            annotation = parameter.getAnnotation(RequestBody.class);
+            if (annotation instanceof RequestBody) {
+                po.setRequestBody(new fourteam.swagger.parts.RequestBody());
+            }
+        }
         po.setOperationId(tag + "_" + name);
         po.setSummary(tag + " " + name);
         po.addTag(tag);

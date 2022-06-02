@@ -3,6 +3,7 @@ package fourteam.swagger.parts;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,6 +14,8 @@ public class Path {
     String summary;
     String description;
     String operationId;
+    RequestBody requestBody;
+    List<Parameter> parameters;
     List<Response> responses;
     List<String> tags;
 
@@ -20,17 +23,10 @@ public class Path {
         this.path = path;
         this.method = method;
 
-        // this.summary = "SUMARY";
-        // this.description = "description";
-        String pat = path.toLowerCase();
-        pat = pat.replaceAll("/", "_");
-        pat = pat.replaceAll("\\{", "");
-        pat = pat.replaceAll("\\}", "");
-
-        this.operationId = method + pat;
+        this.operationId = UUID.randomUUID().toString();
         this.responses = new ArrayList<Response>();
+        this.parameters = new ArrayList<Parameter>();
         this.tags = new ArrayList<String>();
-
         this.responses.add(new Response(200));
     }
 
@@ -46,13 +42,26 @@ public class Path {
         tags.add(tag);
     }
 
+    public void addParameter(Parameter parameter) {
+        parameters.add(parameter);
+    }
+    public void setRequestBody(RequestBody requestBody) {
+        this.requestBody = requestBody;
+    }
+    
 
     public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> p = new HashMap<String, Object>();
         HashMap<String, Object> obj = new HashMap<String, Object>();
         obj.put("summary", this.summary);
-        if(this.description != null) {
+        if (this.description != null) {
             obj.put("description", this.description);
+        }
+        if (this.parameters.size() > 0) {
+            obj.put("parameters", this.getParameters());
+        }
+        if(this.requestBody != null) {
+            obj.put("requestBody", this.requestBody.toHashMap());
         }
         obj.put("operationId", this.operationId);
         obj.put("responses", this.getResponses());
@@ -65,7 +74,15 @@ public class Path {
     public HashMap<String, Object> getResponses() {
         HashMap<String, Object> obj = new HashMap<String, Object>();
         responses.iterator().forEachRemaining(a -> {
-            obj.put(a.code + "", a.toHasMap());
+            obj.put(a.code + "", a.toHashMap());
+        });
+        return obj;
+    }
+
+    public List<HashMap<String,Object>> getParameters() {
+        List<HashMap<String,Object>> obj = new ArrayList<HashMap<String,Object>>();
+        parameters.iterator().forEachRemaining(a -> {
+            obj.add(a.toHashMap());
         });
         return obj;
     }

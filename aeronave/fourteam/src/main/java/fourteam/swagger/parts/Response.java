@@ -11,7 +11,7 @@ public class Response {
 
     public Response(int code) {
         this.code = code;
-        this.description = "";
+        this.description = "Response " + code;
         // this.content = new JSONObject();
         // this.content.put("application/json", new JSONObject());
     }
@@ -23,7 +23,7 @@ public class Response {
         return obj;
     }
 
-    public HashMap<String, Object> toHasMap() {
+    public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> obj = new HashMap<String, Object>();
         obj.put("description", this.description);
         // obj.put("content", this.content);

@@ -21,7 +21,7 @@ public class Document {
         servers = new ArrayList<Server>();
         paths = new ArrayList<Path>();
         tags = new ArrayList<Tag>();
-        servers.add(new Server("http://localhost:80"));
+        servers.add(new Server("http://localhost/api/"));
         // paths.add(new Path("/", "get", "usuario"));
     }
 
@@ -56,7 +56,6 @@ public class Document {
     public Map<String, Object> getPaths() {
         HashMap<String, Object> obj = new HashMap<String, Object>();
         paths.iterator().forEachRemaining(a -> {
-            System.out.println(a.path);
             if (obj.containsKey(a.path)) {
                 Map<String, Object> map = (Map<String, Object>) obj.get(a.path);
                 map.put(a.method, a.toHashMap().get(a.method));
