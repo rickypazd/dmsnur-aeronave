@@ -9,13 +9,13 @@ public class GetAllAeronaveHandler implements RequestHandler&lt;GetAllAeronaveQu
 
     private IAeronaveRepository _aeronaveRepository;
 
-<span class="nc" id="L12">    public GetAllAeronaveHandler(IAeronaveRepository aeronaveRepository) {</span>
-<span class="nc" id="L13">        this._aeronaveRepository = aeronaveRepository;</span>
-<span class="nc" id="L14">    }</span>
+<span class="fc" id="L12">    public GetAllAeronaveHandler(IAeronaveRepository aeronaveRepository) {</span>
+<span class="fc" id="L13">        this._aeronaveRepository = aeronaveRepository;</span>
+<span class="fc" id="L14">    }</span>
 
     @Override
     public List&lt;Aeronave&gt; handle(GetAllAeronaveQuery request) {
-<span class="nc" id="L18">        return _aeronaveRepository.GetAll();</span>
+<span class="fc" id="L18">        return _aeronaveRepository.GetAll();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

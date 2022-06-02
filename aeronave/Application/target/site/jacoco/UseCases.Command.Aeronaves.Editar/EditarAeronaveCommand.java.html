@@ -9,9 +9,10 @@ public class EditarAeronaveCommand implements Request&lt;AeronaveDto&gt; {
 
     public AeronaveDto aeronave;
 
-<span class="fc" id="L12">    public EditarAeronaveCommand(AeronaveDto aeronave) {</span>
-<span class="fc" id="L13">        this.aeronave = aeronave;</span>
-<span class="fc" id="L14">    }</span>
+<span class="fc" id="L12">    public EditarAeronaveCommand(UUID key) {</span>
+<span class="fc" id="L13">        this.aeronave = new AeronaveDto();</span>
+<span class="fc" id="L14">        this.aeronave.key = key;</span>
+<span class="fc" id="L15">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

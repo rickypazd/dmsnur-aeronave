@@ -12,7 +12,8 @@ public class EditarAeronaveCommand_Test {
         String matricula = "XYC";
         AeronaveDto aeronave = new AeronaveDto();
         aeronave.setMatricula(matricula);
-        EditarAeronaveCommand command = new EditarAeronaveCommand(aeronave);
+        EditarAeronaveCommand command = new EditarAeronaveCommand(aeronave.key);
+        command.aeronave.matricula = matricula;
         Assert.assertEquals(matricula, command.aeronave.getMatricula());
     }
 

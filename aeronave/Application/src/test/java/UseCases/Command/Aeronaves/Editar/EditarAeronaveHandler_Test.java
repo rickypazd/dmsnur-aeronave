@@ -4,6 +4,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.UUID;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,8 +40,10 @@ public class EditarAeronaveHandler_Test {
 
         AeronaveDto aeronaveDto = new AeronaveDto();
         aeronaveDto.matricula = matricula;
+        aeronaveDto.key= a.key;
 
-        EditarAeronaveCommand command = new EditarAeronaveCommand(aeronaveDto);
+        EditarAeronaveCommand command = new EditarAeronaveCommand(aeronaveDto.key);
+        command.aeronave.matricula = matricula;
         Aeronave resp = handler.handle(command);
         Assert.assertEquals(matricula, resp.matricula);
     }
@@ -52,8 +56,9 @@ public class EditarAeronaveHandler_Test {
 
         AeronaveDto aeronaveDto = new AeronaveDto();
         aeronaveDto.matricula = "ABC";
+        aeronaveDto.key = UUID.randomUUID();
 
-        EditarAeronaveCommand command = new EditarAeronaveCommand(aeronaveDto);
+        EditarAeronaveCommand command = new EditarAeronaveCommand(aeronaveDto.key);
         try {
             Aeronave resp = handler.handle(command);
         } catch (HttpException e) {
