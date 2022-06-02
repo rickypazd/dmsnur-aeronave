@@ -13,19 +13,19 @@ public class CrearMarcaHandler implements RequestHandler&lt;CrearMarcaCommand, M
     private IMarcaRepository _marcaRepository;
     private IUnitOfWork _unitOfWork;
 
-<span class="nc" id="L16">    public CrearMarcaHandler(IMarcaFactory marcaFactory, IMarcaRepository marcaRepository,</span>
+<span class="fc" id="L16">    public CrearMarcaHandler(IMarcaFactory marcaFactory, IMarcaRepository marcaRepository,</span>
             IUnitOfWork _unitOfWork) {
-<span class="nc" id="L18">        this._marcaFactory = marcaFactory;</span>
-<span class="nc" id="L19">        this._marcaRepository = marcaRepository;</span>
-<span class="nc" id="L20">        this._unitOfWork = _unitOfWork;</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L18">        this._marcaFactory = marcaFactory;</span>
+<span class="fc" id="L19">        this._marcaRepository = marcaRepository;</span>
+<span class="fc" id="L20">        this._unitOfWork = _unitOfWork;</span>
+<span class="fc" id="L21">    }</span>
 
     @Override
     public Marca handle(CrearMarcaCommand request) throws HttpException {
-<span class="nc" id="L25">        Marca marca = _marcaFactory.Create(request.nombre);</span>
-<span class="nc" id="L26">        _marcaRepository.Create(marca);</span>
-<span class="nc" id="L27">        _unitOfWork.commit();</span>
-<span class="nc" id="L28">        return marca;</span>
+<span class="fc" id="L25">        Marca marca = _marcaFactory.Create(request.nombre);</span>
+<span class="fc" id="L26">        _marcaRepository.Create(marca);</span>
+<span class="fc" id="L27">        _unitOfWork.commit();</span>
+<span class="fc" id="L28">        return marca;</span>
 
     }
 

@@ -17,27 +17,27 @@ import Factories.MarcaFactory;
 import fourteam.extensions.IServiceCollection;
 import fourteam.mediator.IMediator;
 
-<span class="nc" id="L20">public class Application {</span>
+<span class="fc" id="L20">public class Application {</span>
 
     public static void AddApplication() {
         // INFO:Usamos el IMediator del kernel en cambio del MediatR de Spring
         
-<span class="nc" id="L25">        IMediator.registerHandler(GetAllAeronaveHandler.class);</span>
-<span class="nc" id="L26">        IMediator.registerHandler(GetAeronaveByKeyHandler.class);</span>
-<span class="nc" id="L27">        IMediator.registerHandler(CrearAeronaveHandler.class);</span>
-<span class="nc" id="L28">        IMediator.registerHandler(EliminarAeronaveHandler.class);</span>
-<span class="nc" id="L29">        IMediator.registerHandler(EditarAeronaveHandler.class);</span>
+<span class="fc" id="L25">        IMediator.registerHandler(GetAllAeronaveHandler.class);</span>
+<span class="fc" id="L26">        IMediator.registerHandler(GetAeronaveByKeyHandler.class);</span>
+<span class="fc" id="L27">        IMediator.registerHandler(CrearAeronaveHandler.class);</span>
+<span class="fc" id="L28">        IMediator.registerHandler(EliminarAeronaveHandler.class);</span>
+<span class="fc" id="L29">        IMediator.registerHandler(EditarAeronaveHandler.class);</span>
         // MARCA
-<span class="nc" id="L31">        IMediator.registerHandler(GetAllMarcaHandler.class);</span>
-<span class="nc" id="L32">        IMediator.registerHandler(GetMarcaByKeyHandler.class);</span>
-<span class="nc" id="L33">        IMediator.registerHandler(CrearMarcaHandler.class);</span>
-<span class="nc" id="L34">        IMediator.registerHandler(EliminarMarcaHandler.class);</span>
-<span class="nc" id="L35">        IMediator.registerHandler(EditarMarcaHandler.class);</span>
-<span class="nc" id="L36">        IMediator.registerHandler(UpdateAsientosWhenAeronaveCreadoHandler.class);</span>
-<span class="nc" id="L37">        IServiceCollection.AddTransient(IAeronaveFactory.class, AeronaveFactory.class);</span>
-<span class="nc" id="L38">        IServiceCollection.AddTransient(IMarcaFactory.class, MarcaFactory.class);</span>
+<span class="fc" id="L31">        IMediator.registerHandler(GetAllMarcaHandler.class);</span>
+<span class="fc" id="L32">        IMediator.registerHandler(GetMarcaByKeyHandler.class);</span>
+<span class="fc" id="L33">        IMediator.registerHandler(CrearMarcaHandler.class);</span>
+<span class="fc" id="L34">        IMediator.registerHandler(EliminarMarcaHandler.class);</span>
+<span class="fc" id="L35">        IMediator.registerHandler(EditarMarcaHandler.class);</span>
+<span class="fc" id="L36">        IMediator.registerHandler(UpdateAsientosWhenAeronaveCreadoHandler.class);</span>
+<span class="fc" id="L37">        IServiceCollection.AddTransient(IAeronaveFactory.class, AeronaveFactory.class);</span>
+<span class="fc" id="L38">        IServiceCollection.AddTransient(IMarcaFactory.class, MarcaFactory.class);</span>
 
-<span class="nc" id="L40">        Domain.addDomain();</span>
-<span class="nc" id="L41">    }</span>
+<span class="fc" id="L40">        Domain.addDomain();</span>
+<span class="fc" id="L41">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

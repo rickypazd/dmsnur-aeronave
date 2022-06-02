@@ -17,22 +17,22 @@ public class EditarMarcaHandler implements RequestHandler&lt;EditarMarcaCommand,
     private IMarcaRepository _marcaRepository;
     private IUnitOfWork _unitOfWork;
 
-<span class="nc" id="L20">    public EditarMarcaHandler(IMarcaFactory marcaFactory, IMarcaRepository marcaRepository,</span>
+<span class="fc" id="L20">    public EditarMarcaHandler(IMarcaFactory marcaFactory, IMarcaRepository marcaRepository,</span>
             IUnitOfWork _unitOfWork) {
-<span class="nc" id="L22">        this._marcaFactory = marcaFactory;</span>
-<span class="nc" id="L23">        this._marcaRepository = marcaRepository;</span>
-<span class="nc" id="L24">        this._unitOfWork = _unitOfWork;</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L22">        this._marcaFactory = marcaFactory;</span>
+<span class="fc" id="L23">        this._marcaRepository = marcaRepository;</span>
+<span class="fc" id="L24">        this._unitOfWork = _unitOfWork;</span>
+<span class="fc" id="L25">    }</span>
 
     @Override
     public Marca handle(EditarMarcaCommand request) throws HttpException {
-<span class="nc" id="L29">        Marca marca = _marcaRepository.FindByKey(request.marca.key);</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (marca == null) {</span>
-<span class="nc" id="L31">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;marca no encontrada&quot;);</span>
+<span class="fc" id="L29">        Marca marca = _marcaRepository.FindByKey(request.marca.key);</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (marca == null) {</span>
+<span class="fc" id="L31">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;marca no encontrada&quot;);</span>
         }
-<span class="nc" id="L33">        marca.nombre = request.marca.nombre;</span>
-<span class="nc" id="L34">        _marcaRepository.Update(marca);</span>
-<span class="nc" id="L35">        return marca;</span>
+<span class="fc" id="L33">        marca.nombre = request.marca.nombre;</span>
+<span class="fc" id="L34">        _marcaRepository.Update(marca);</span>
+<span class="fc" id="L35">        return marca;</span>
 
     }
 

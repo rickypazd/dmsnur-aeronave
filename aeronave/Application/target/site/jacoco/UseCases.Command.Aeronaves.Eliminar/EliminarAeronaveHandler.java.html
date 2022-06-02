@@ -14,21 +14,21 @@ public class EliminarAeronaveHandler implements RequestHandler&lt;EliminarAerona
     private IAeronaveRepository _aeronaveRepository;
     private IUnitOfWork _unitOfWork;
 
-<span class="nc" id="L17">    public EliminarAeronaveHandler(IAeronaveFactory aeronaveFactory, IAeronaveRepository aeronaveRepository,</span>
+<span class="fc" id="L17">    public EliminarAeronaveHandler(IAeronaveFactory aeronaveFactory, IAeronaveRepository aeronaveRepository,</span>
             IUnitOfWork _unitOfWork) {
-<span class="nc" id="L19">        this._aeronaveFactory = aeronaveFactory;</span>
-<span class="nc" id="L20">        this._aeronaveRepository = aeronaveRepository;</span>
-<span class="nc" id="L21">        this._unitOfWork = _unitOfWork;</span>
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L19">        this._aeronaveFactory = aeronaveFactory;</span>
+<span class="fc" id="L20">        this._aeronaveRepository = aeronaveRepository;</span>
+<span class="fc" id="L21">        this._unitOfWork = _unitOfWork;</span>
+<span class="fc" id="L22">    }</span>
 
     @Override
     public Aeronave handle(EliminarAeronaveCommand request) throws HttpException {
-<span class="nc" id="L26">        Aeronave aeronave = _aeronaveRepository.FindByKey(request.aeronave.key);</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (aeronave == null) {</span>
-<span class="nc" id="L28">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;Aeronave no encontrada&quot;);</span>
+<span class="fc" id="L26">        Aeronave aeronave = _aeronaveRepository.FindByKey(request.aeronave.key);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (aeronave == null) {</span>
+<span class="fc" id="L28">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;Aeronave no encontrada&quot;);</span>
         }
         
-<span class="nc" id="L31">        return _aeronaveRepository.Delete(aeronave);</span>
+<span class="fc" id="L31">        return _aeronaveRepository.Delete(aeronave);</span>
 
     }
 
