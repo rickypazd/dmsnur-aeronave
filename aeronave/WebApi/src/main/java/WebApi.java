@@ -8,6 +8,6 @@ public class WebApi {
         Rest.addController(AeronaveController.class);
         // Rest.addController(MarcaController.class);
         Rest.createSwagger();
-        // Rest.start(80);
+        Rest.start(80);
     }
 }

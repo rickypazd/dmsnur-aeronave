@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Domain,Model.Marcas,Marca,9,0,0,0,4,0,1,0,1,0
+Domain,default,Domain,3,2,0,0,1,2,1,1,1,1
+Domain,Model.Aeronaves,Asiento,15,0,0,0,6,0,1,0,1,0
+Domain,Model.Aeronaves,Aeronave,66,0,2,0,16,0,7,0,6,0
+Domain,Model.Aeronaves.ValueObjects,MatriculaAeronave,15,0,0,0,5,0,2,0,2,0
+Domain,Event,AeronaveCreado,27,0,0,0,12,0,6,0,6,0
+Domain,Factories,AeronaveFactory,8,0,0,0,3,0,2,0,2,0
+Domain,Factories,MarcaFactory,8,0,0,0,3,0,2,0,2,0

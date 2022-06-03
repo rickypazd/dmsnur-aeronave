@@ -23,6 +23,7 @@ public class GetAeronaveByKeyHandler implements RequestHandler<GetAeronaveByKeyQ
             throw new HttpException(HttpStatus.BAD_REQUEST, "Aeronave no encontrada");
         }
         AeronaveDto aeronaveDto = new AeronaveDto();
+        aeronaveDto.key = aeronave.key;
         aeronaveDto.matricula = aeronave.matricula;
         aeronave.asientos.iterator().forEachRemaining(obj -> {
             aeronaveDto.asientos.add(new AsientoDto(obj.key, obj.numero, obj.clase));

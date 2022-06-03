@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler_Test

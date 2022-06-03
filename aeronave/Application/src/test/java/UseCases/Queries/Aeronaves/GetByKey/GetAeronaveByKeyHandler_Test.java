@@ -1,0 +1,54 @@
+package UseCases.Queries.Aeronaves.GetByKey;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import Model.Aeronaves.Aeronave;
+import Model.Aeronaves.Asiento;
+import Repositories.IAeronaveRepository;
+
+public class GetAeronaveByKeyHandler_Test {
+    // IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
+    IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
+    // IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
+
+    @Test
+    public void HandleCorrectly() {
+        Aeronave a = new Aeronave("ASD");
+        a.agregarAsiento(new Asiento(a.key, 1, "A1"));
+        when(aeronaveRepository.FindByKey(any())).thenReturn(a);
+        GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);
+        GetAeronaveByKeyQuery query = new GetAeronaveByKeyQuery(a.key);
+        try {
+            Assert.assertEquals(a.key, handler.handle(query).key);
+        } catch (Exception e) {
+            Assert.fail();
+        }
+        verify(aeronaveRepository).FindByKey(a.key);
+
+    }
+
+    @Test
+    public void HandleFail() {
+        Aeronave a = new Aeronave("ASD");
+        when(aeronaveRepository.FindByKey(any())).thenReturn(null);
+        GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);
+        GetAeronaveByKeyQuery query = new GetAeronaveByKeyQuery(a.key);
+        try {
+            handler.handle(query);
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+        // verify(aeronaveRepository).FindByKey(a.key);
+
+    }
+
+}

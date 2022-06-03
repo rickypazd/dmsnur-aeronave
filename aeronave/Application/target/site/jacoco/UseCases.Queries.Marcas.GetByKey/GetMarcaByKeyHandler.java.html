@@ -11,19 +11,20 @@ public class GetMarcaByKeyHandler implements RequestHandler&lt;GetMarcaByKeyQuer
 
     private IMarcaRepository _marcaRepository;
 
-<span class="nc" id="L14">    public GetMarcaByKeyHandler(IMarcaRepository marcaRepository) {</span>
-<span class="nc" id="L15">        this._marcaRepository = marcaRepository;</span>
-<span class="nc" id="L16">    }</span>
+<span class="fc" id="L14">    public GetMarcaByKeyHandler(IMarcaRepository marcaRepository) {</span>
+<span class="fc" id="L15">        this._marcaRepository = marcaRepository;</span>
+<span class="fc" id="L16">    }</span>
 
     @Override
     public MarcaDto handle(GetMarcaByKeyQuery request) throws HttpException {
-<span class="nc" id="L20">        Marca marca = _marcaRepository.FindByKey(request.key);</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (marca == null) {</span>
-<span class="nc" id="L22">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;marca no encontrada&quot;);</span>
+<span class="fc" id="L20">        Marca marca = _marcaRepository.FindByKey(request.key);</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (marca == null) {</span>
+<span class="fc" id="L22">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;marca no encontrada&quot;);</span>
         }
-<span class="nc" id="L24">        MarcaDto marcaDto = new MarcaDto();</span>
-<span class="nc" id="L25">        marcaDto.nombre = marca.nombre;</span>
-<span class="nc" id="L26">        return marcaDto;</span>
+<span class="fc" id="L24">        MarcaDto marcaDto = new MarcaDto();</span>
+<span class="fc" id="L25">        marcaDto.key = marca.key;</span>
+<span class="fc" id="L26">        marcaDto.nombre = marca.nombre;</span>
+<span class="fc" id="L27">        return marcaDto;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

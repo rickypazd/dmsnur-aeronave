@@ -22,6 +22,7 @@ public class GetMarcaByKeyHandler implements RequestHandler<GetMarcaByKeyQuery, 
             throw new HttpException(HttpStatus.BAD_REQUEST, "marca no encontrada");
         }
         MarcaDto marcaDto = new MarcaDto();
+        marcaDto.key = marca.key;
         marcaDto.nombre = marca.nombre;
         return marcaDto;
     }

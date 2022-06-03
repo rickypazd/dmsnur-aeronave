@@ -21,7 +21,7 @@ public class Application {
 
     public static void AddApplication() {
         // INFO:Usamos el IMediator del kernel en cambio del MediatR de Spring
-        
+
         IMediator.registerHandler(GetAllAeronaveHandler.class);
         IMediator.registerHandler(GetAeronaveByKeyHandler.class);
         IMediator.registerHandler(CrearAeronaveHandler.class);

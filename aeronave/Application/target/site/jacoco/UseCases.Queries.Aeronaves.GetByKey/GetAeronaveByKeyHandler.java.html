@@ -12,22 +12,23 @@ public class GetAeronaveByKeyHandler implements RequestHandler&lt;GetAeronaveByK
 
     private IAeronaveRepository _aeronaveRepository;
 
-<span class="nc" id="L15">    public GetAeronaveByKeyHandler(IAeronaveRepository aeronaveRepository) {</span>
-<span class="nc" id="L16">        this._aeronaveRepository = aeronaveRepository;</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L15">    public GetAeronaveByKeyHandler(IAeronaveRepository aeronaveRepository) {</span>
+<span class="fc" id="L16">        this._aeronaveRepository = aeronaveRepository;</span>
+<span class="fc" id="L17">    }</span>
 
     @Override
     public AeronaveDto handle(GetAeronaveByKeyQuery request) throws HttpException {
-<span class="nc" id="L21">        Aeronave aeronave = _aeronaveRepository.FindByKey(request.key);</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (aeronave == null) {</span>
-<span class="nc" id="L23">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;Aeronave no encontrada&quot;);</span>
+<span class="fc" id="L21">        Aeronave aeronave = _aeronaveRepository.FindByKey(request.key);</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (aeronave == null) {</span>
+<span class="fc" id="L23">            throw new HttpException(HttpStatus.BAD_REQUEST, &quot;Aeronave no encontrada&quot;);</span>
         }
-<span class="nc" id="L25">        AeronaveDto aeronaveDto = new AeronaveDto();</span>
-<span class="nc" id="L26">        aeronaveDto.matricula = aeronave.matricula;</span>
-<span class="nc" id="L27">        aeronave.asientos.iterator().forEachRemaining(obj -&gt; {</span>
-<span class="nc" id="L28">            aeronaveDto.asientos.add(new AsientoDto(obj.key, obj.numero, obj.clase));</span>
-<span class="nc" id="L29">        });</span>
-<span class="nc" id="L30">        return aeronaveDto;</span>
+<span class="fc" id="L25">        AeronaveDto aeronaveDto = new AeronaveDto();</span>
+<span class="fc" id="L26">        aeronaveDto.key = aeronave.key;</span>
+<span class="fc" id="L27">        aeronaveDto.matricula = aeronave.matricula;</span>
+<span class="fc" id="L28">        aeronave.asientos.iterator().forEachRemaining(obj -&gt; {</span>
+<span class="fc" id="L29">            aeronaveDto.asientos.add(new AsientoDto(obj.key, obj.numero, obj.clase));</span>
+<span class="fc" id="L30">        });</span>
+<span class="fc" id="L31">        return aeronaveDto;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
