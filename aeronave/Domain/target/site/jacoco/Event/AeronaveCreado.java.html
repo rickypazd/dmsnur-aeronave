@@ -11,30 +11,30 @@ public class AeronaveCreado extends DomainEvent {
     public String matricula;
 
     public AeronaveCreado() {
-<span class="nc" id="L14">        super();</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L14">        super();</span>
+<span class="fc" id="L15">    }</span>
 
     public AeronaveCreado(UUID keyAeronave, String matricula) {
-<span class="nc" id="L18">        super(LocalDateTime.now());</span>
-<span class="nc" id="L19">        this.keyAeronave = keyAeronave;</span>
-<span class="nc" id="L20">        this.matricula = matricula;</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L18">        super(LocalDateTime.now());</span>
+<span class="fc" id="L19">        this.keyAeronave = keyAeronave;</span>
+<span class="fc" id="L20">        this.matricula = matricula;</span>
+<span class="fc" id="L21">    }</span>
 
     public UUID getKeyAeronave() {
-<span class="nc" id="L24">        return this.keyAeronave;</span>
+<span class="fc" id="L24">        return this.keyAeronave;</span>
     }
 
     public void setKeyAeronave(UUID keyAeronave) {
-<span class="nc" id="L28">        this.keyAeronave = keyAeronave;</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L28">        this.keyAeronave = keyAeronave;</span>
+<span class="fc" id="L29">    }</span>
 
     public String getMatricula() {
-<span class="nc" id="L32">        return this.matricula;</span>
+<span class="fc" id="L32">        return this.matricula;</span>
     }
 
     public void setMatricula(String matricula) {
-<span class="nc" id="L36">        this.matricula = matricula;</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L36">        this.matricula = matricula;</span>
+<span class="fc" id="L37">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

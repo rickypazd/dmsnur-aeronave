@@ -14,29 +14,29 @@ public class Aeronave extends AggregateRoot&lt;UUID&gt; {
     public String matricula;
     public List&lt;Asiento&gt; asientos;
 
-<span class="nc" id="L17">    public Aeronave() {</span>
+<span class="fc" id="L17">    public Aeronave() {</span>
 
-<span class="nc" id="L19">    }</span>
-<span class="nc" id="L20">    public Aeronave(String matricula) {</span>
-<span class="nc" id="L21">        key = UUID.randomUUID();</span>
+<span class="fc" id="L19">    }</span>
+<span class="fc" id="L20">    public Aeronave(String matricula) {</span>
+<span class="fc" id="L21">        key = UUID.randomUUID();</span>
         try {
-<span class="nc" id="L23">            this.matricula = new MatriculaAeronave(matricula).toString();</span>
-<span class="nc" id="L24">        } catch (BussinessRuleValidateExeption e) {</span>
-<span class="nc" id="L25">            e.printStackTrace();</span>
-<span class="nc" id="L26">            return;</span>
+<span class="fc" id="L23">            this.matricula = new MatriculaAeronave(matricula).toString();</span>
+<span class="fc" id="L24">        } catch (BussinessRuleValidateExeption e) {</span>
+<span class="fc" id="L25">            e.printStackTrace();</span>
+<span class="fc" id="L26">            return;</span>
         }
-<span class="nc" id="L28">        asientos = new ArrayList&lt;Asiento&gt;();</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L28">        asientos = new ArrayList&lt;Asiento&gt;();</span>
+<span class="fc" id="L29">    }</span>
 
     public void eventCreado() {
-<span class="nc" id="L32">        addDomainEvent(new AeronaveCreado(key, matricula));</span>
-<span class="nc" id="L33">    }</span>
+<span class="fc" id="L32">        addDomainEvent(new AeronaveCreado(key, matricula));</span>
+<span class="fc" id="L33">    }</span>
 
     public void agregarAsiento(Asiento asiento) {
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        asientos.parallelStream().filter(p -&gt; p.getKey() == asiento.getKey()).findFirst().ifPresent(p -&gt; {</span>
-<span class="nc" id="L37">            throw new RuntimeException(&quot;El asiento ya existe&quot;);</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        asientos.parallelStream().filter(p -&gt; p.getKey() == asiento.getKey()).findFirst().ifPresent(p -&gt; {</span>
+<span class="fc" id="L37">            throw new RuntimeException(&quot;El asiento ya existe&quot;);</span>
         });
-<span class="nc" id="L39">        asientos.add(asiento);</span>
-<span class="nc" id="L40">    }</span>
+<span class="fc" id="L39">        asientos.add(asiento);</span>
+<span class="fc" id="L40">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
