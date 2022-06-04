@@ -38,11 +38,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}aeronave/registro",
+							"raw": "{{url}}/aeronave/registro",
 							"host": [
-								"{{url}}aeronave"
+								"{{url}}"
 							],
 							"path": [
+								"aeronave",
 								"registro"
 							]
 						}
@@ -77,11 +78,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}aeronave/{{key_aeronave}}",
+							"raw": "{{url}}/aeronave/{{key_aeronave}}",
 							"host": [
-								"{{url}}aeronave"
+								"{{url}}"
 							],
 							"path": [
+								"aeronave",
 								"{{key_aeronave}}"
 							]
 						}
@@ -107,11 +109,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}aeronave/{{key_aeronave}}",
+							"raw": "{{url}}/aeronave/{{key_aeronave}}",
 							"host": [
-								"{{url}}aeronave"
+								"{{url}}"
 							],
 							"path": [
+								"aeronave",
 								"{{key_aeronave}}"
 							]
 						}
@@ -137,11 +140,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}aeronave/{{key_aeronave}}",
+							"raw": "{{url}}/aeronave/{{key_aeronave}}",
 							"host": [
-								"{{url}}aeronave"
+								"{{url}}"
 							],
 							"path": [
+								"aeronave",
 								"{{key_aeronave}}"
 							]
 						}
@@ -170,11 +174,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}aeronave/",
+							"raw": "{{url}}/aeronave/",
 							"host": [
-								"{{url}}aeronave"
+								"{{url}}"
 							],
 							"path": [
+								"aeronave",
 								""
 							]
 						}
@@ -216,11 +221,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}marca/registro",
+							"raw": "{{url}}/marca/registro",
 							"host": [
-								"{{url}}marca"
+								"{{url}}"
 							],
 							"path": [
+								"marca",
 								"registro"
 							]
 						}
@@ -255,11 +261,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}marca/{{key_marca}}",
+							"raw": "{{url}}/marca/{{key_marca}}",
 							"host": [
-								"{{url}}marca"
+								"{{url}}"
 							],
 							"path": [
+								"marca",
 								"{{key_marca}}"
 							]
 						}
@@ -285,11 +292,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}marca/{{key_marca}}",
+							"raw": "{{url}}/marca/{{key_marca}}",
 							"host": [
-								"{{url}}marca"
+								"{{url}}"
 							],
 							"path": [
+								"marca",
 								"{{key_marca}}"
 							]
 						}
@@ -315,11 +323,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}marca/{{key_marca}}",
+							"raw": "{{url}}/marca/{{key_marca}}",
 							"host": [
-								"{{url}}marca"
+								"{{url}}"
 							],
 							"path": [
+								"marca",
 								"{{key_marca}}"
 							]
 						}
@@ -345,11 +354,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}marca/",
+							"raw": "{{url}}/marca/",
 							"host": [
-								"{{url}}marca"
+								"{{url}}"
 							],
 							"path": [
+								"marca",
 								""
 							]
 						}

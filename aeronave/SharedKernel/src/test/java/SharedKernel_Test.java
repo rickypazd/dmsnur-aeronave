@@ -8,4 +8,9 @@ public class SharedKernel_Test {
         SharedKernel sharedKernel = new SharedKernel();
         Assert.assertNotNull(sharedKernel);
     }
+    @Test
+    public void addkernel_accert() {
+        SharedKernel.AddKernel();
+        Assert.assertNotNull(SharedKernel.class);
+    }
 }
