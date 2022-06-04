@@ -4,17 +4,17 @@ import fourteam.extensions.IServiceCollection;
 import Context.IWriteDbContext;
 import Repository.*;
 
-<span class="nc" id="L7">public class Infraestructure {</span>
+<span class="fc" id="L7">public class Infraestructure {</span>
     public static void AddInfraestructure() {
         
-<span class="nc" id="L10">        IServiceCollection.AddMediator();</span>
-<span class="nc" id="L11">        IServiceCollection.AddScoped(IWriteDbContext.class, Context.MongoDB.WriteDbContext.class);</span>
-<span class="nc" id="L12">        IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);</span>
-<span class="nc" id="L13">        IServiceCollection.AddScoped(IAeronaveRepository.class, AeronaveRepository.class);</span>
-<span class="nc" id="L14">        IServiceCollection.AddScoped(IAsientoRepository.class, AsientoRepository.class);</span>
-<span class="nc" id="L15">        IServiceCollection.AddScoped(IMarcaRepository.class, MarcaRepository.class);</span>
+<span class="fc" id="L10">        IServiceCollection.AddMediator();</span>
+<span class="fc" id="L11">        IServiceCollection.AddScoped(IWriteDbContext.class, Context.MongoDB.WriteDbContext.class);</span>
+<span class="fc" id="L12">        IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);</span>
+<span class="fc" id="L13">        IServiceCollection.AddScoped(IAeronaveRepository.class, AeronaveRepository.class);</span>
+<span class="fc" id="L14">        IServiceCollection.AddScoped(IAsientoRepository.class, AsientoRepository.class);</span>
+<span class="fc" id="L15">        IServiceCollection.AddScoped(IMarcaRepository.class, MarcaRepository.class);</span>
 
-<span class="nc" id="L17">        Application.AddApplication();</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L17">        Application.AddApplication();</span>
+<span class="fc" id="L18">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -18,7 +18,7 @@ public class AeronaveRepository implements IAeronaveRepository {
 
     @Override
     public Aeronave FindByKey(UUID key) {
-<span class="nc" id="L21">        return _aeronaves.Single(obj -&gt; obj.key.equals(key));</span>
+<span class="pc" id="L21">        return _aeronaves.Single(obj -&gt; obj.key.equals(key));</span>
     }
 
     @Override
@@ -33,15 +33,15 @@ public class AeronaveRepository implements IAeronaveRepository {
 
     @Override
     public Aeronave Delete(Aeronave obj) {
-<span class="nc" id="L36">        _aeronaves.Delete((it -&gt; it.key.equals(obj.key)));</span>
-<span class="nc" id="L37">        return obj;</span>
+<span class="pc" id="L36">        _aeronaves.Delete((it -&gt; it.key.equals(obj.key)));</span>
+<span class="fc" id="L37">        return obj;</span>
 
     }
 
     @Override
     public Aeronave Update(Aeronave obj) {
-<span class="nc" id="L43">        _aeronaves.Update(obj, (it -&gt; it.key.equals(obj.key)));</span>
-<span class="nc" id="L44">        return obj;</span>
+<span class="pc" id="L43">        _aeronaves.Update(obj, (it -&gt; it.key.equals(obj.key)));</span>
+<span class="fc" id="L44">        return obj;</span>
 
     }
 

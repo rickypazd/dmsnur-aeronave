@@ -10,19 +10,19 @@ public class UnitOfWork implements IUnitOfWork {
     private IWriteDbContext _context;
     private Mediator _mediator;
 
-<span class="nc" id="L13">    public UnitOfWork(IWriteDbContext context, Mediator mediator) {</span>
-<span class="nc" id="L14">        _context = context;</span>
-<span class="nc" id="L15">        _mediator = mediator;</span>
-<span class="nc" id="L16">    }</span>
+<span class="fc" id="L13">    public UnitOfWork(IWriteDbContext context, Mediator mediator) {</span>
+<span class="fc" id="L14">        _context = context;</span>
+<span class="fc" id="L15">        _mediator = mediator;</span>
+<span class="fc" id="L16">    }</span>
 
     @Override
     public void commit() throws HttpException {
-<span class="nc" id="L20">        List&lt;Object&gt; events = _context.getDomainEvents();</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (Object domainEvent : events) {</span>
-<span class="nc" id="L22">            DomainEvent event = (DomainEvent) domainEvent;</span>
-<span class="nc" id="L23">            _mediator.notify(event);</span>
+<span class="fc" id="L20">        List&lt;Object&gt; events = _context.getDomainEvents();</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (Object domainEvent : events) {</span>
+<span class="fc" id="L22">            DomainEvent event = (DomainEvent) domainEvent;</span>
+<span class="fc" id="L23">            _mediator.notify(event);</span>
         }
-<span class="nc" id="L25">        _context.Commit();</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L25">        _context.Commit();</span>
+<span class="fc" id="L26">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
