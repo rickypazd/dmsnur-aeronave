@@ -23,29 +23,29 @@ public class WriteDbContext extends IWriteDbContext {
     private MongoClient client;
     private MongoDatabase db;
 
-<span class="nc" id="L26">    private final String DB_NAME = &quot;dmsnur_aeronave&quot;;</span>
-<span class="nc" id="L27">    private final String DB_USER = &quot;root&quot;;</span>
-<span class="nc" id="L28">    private final String DB_PASS = &quot;rootpassword&quot;;</span>
-<span class="nc" id="L29">    private final String DB_HOST = &quot;servisofts.com&quot;;</span>
-<span class="nc" id="L30">    private final int DB_PORT = 27017;</span>
+<span class="fc" id="L26">    private final String DB_NAME = &quot;dmsnur_aeronave&quot;;</span>
+<span class="fc" id="L27">    private final String DB_USER = &quot;root&quot;;</span>
+<span class="fc" id="L28">    private final String DB_PASS = &quot;rootpassword&quot;;</span>
+<span class="fc" id="L29">    private final String DB_HOST = &quot;servisofts.com&quot;;</span>
+<span class="fc" id="L30">    private final int DB_PORT = 27017;</span>
 
     public WriteDbContext() {
-<span class="nc" id="L33">        super(WriteDbContext.class);</span>
-<span class="nc" id="L34">    }</span>
+<span class="fc" id="L33">        super(WriteDbContext.class);</span>
+<span class="fc" id="L34">    }</span>
 
     @Override
     public void onModelCreating(List&lt;DbSet&gt; sets) {
-<span class="nc" id="L38">        Logger mongoLogger = Logger.getLogger(&quot;org.mongodb.driver&quot;);</span>
-<span class="nc" id="L39">        mongoLogger.setLevel(Level.SEVERE);</span>
-<span class="nc" id="L40">        MongoClientURI uri = new MongoClientURI(</span>
-<span class="nc" id="L41">                &quot;mongodb://&quot; + DB_USER + &quot;:&quot; + DB_PASS + &quot;@&quot; + DB_HOST + &quot;:&quot; + DB_PORT + &quot;/?authSource=admin&quot;);</span>
-<span class="nc" id="L42">        this.client = new MongoClient(uri);</span>
-<span class="nc" id="L43">        this.db = client.getDatabase(DB_NAME);</span>
-<span class="nc" id="L44">        sets.iterator().forEachRemaining(obj -&gt; {</span>
-<span class="nc" id="L45">            this.db.getCollection(obj.getName());</span>
+<span class="fc" id="L38">        Logger mongoLogger = Logger.getLogger(&quot;org.mongodb.driver&quot;);</span>
+<span class="fc" id="L39">        mongoLogger.setLevel(Level.SEVERE);</span>
+<span class="fc" id="L40">        MongoClientURI uri = new MongoClientURI(</span>
+<span class="fc" id="L41">                &quot;mongodb://&quot; + DB_USER + &quot;:&quot; + DB_PASS + &quot;@&quot; + DB_HOST + &quot;:&quot; + DB_PORT + &quot;/?authSource=admin&quot;);</span>
+<span class="fc" id="L42">        this.client = new MongoClient(uri);</span>
+<span class="fc" id="L43">        this.db = client.getDatabase(DB_NAME);</span>
+<span class="fc" id="L44">        sets.iterator().forEachRemaining(obj -&gt; {</span>
+<span class="fc" id="L45">            this.db.getCollection(obj.getName());</span>
 
-<span class="nc" id="L47">        });</span>
-<span class="nc" id="L48">    }</span>
+<span class="fc" id="L47">        });</span>
+<span class="fc" id="L48">    }</span>
 
     @Override
     public boolean isConnected() {
