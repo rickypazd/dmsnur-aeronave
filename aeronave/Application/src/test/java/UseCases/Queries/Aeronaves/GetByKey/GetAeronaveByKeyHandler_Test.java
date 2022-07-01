@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 import Model.Aeronaves.Aeronave;
 import Model.Aeronaves.Asiento;
 import Repositories.IAeronaveRepository;
+import fourteam.http.Exception.HttpException;
 
 public class GetAeronaveByKeyHandler_Test {
     // IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
@@ -24,6 +25,7 @@ public class GetAeronaveByKeyHandler_Test {
     public void HandleCorrectly() {
         Aeronave a = new Aeronave("ASD");
         a.agregarAsiento(new Asiento(a.key, 1, "A1"));
+        
         when(aeronaveRepository.FindByKey(any())).thenReturn(a);
         GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);
         GetAeronaveByKeyQuery query = new GetAeronaveByKeyQuery(a.key);
@@ -42,12 +44,17 @@ public class GetAeronaveByKeyHandler_Test {
         when(aeronaveRepository.FindByKey(any())).thenReturn(null);
         GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);
         GetAeronaveByKeyQuery query = new GetAeronaveByKeyQuery(a.key);
-        try {
+        // try {
+        // handler.handle(query);
+        // Assert.fail();
+        // } catch (HttpException e) {
+        // Assert.assertEquals(404, e.getCode());
+        // }
+
+        // assert throws exception
+        Assert.assertThrows(HttpException.class, () -> {
             handler.handle(query);
-        } catch (Exception e) {
-            Assert.assertTrue(true);
-        }
-        // verify(aeronaveRepository).FindByKey(a.key);
+        });
 
     }
 

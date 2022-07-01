@@ -37,7 +37,7 @@ public class AeronaveRepository_Test {
     public void FindByKey_accept() {
         // Mockito.verify(_aeronaves).Single(obj -> obj.key.equals(UUID.randomUUID()));
         Aeronave a = new Aeronave();
-        // when(_aeronaves.Single(any())).thenReturn(a);
+        when(_aeronaves.Single(any())).thenReturn(a);
         AeronaveRepository repository = new AeronaveRepository(_database);
         // ArgumentCaptor<Aeronave> captor = ArgumentCaptor.forClass(Aeronave.class);
         repository.FindByKey(UUID.randomUUID());
