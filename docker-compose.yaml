@@ -14,3 +14,8 @@ services:
     image: aeronave-java
     build: ./aeronave
     network_mode: "service:database"
+  web:
+    image: nginx:latest
+    network_mode: "service:database"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
