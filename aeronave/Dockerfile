@@ -2,10 +2,6 @@ FROM alpine:3.14
 
 WORKDIR /usr/src/app
 
-RUN mkdir /usr/share/app
-
-WORKDIR /usr/share/app
-
 RUN  apk update \
   && apk upgrade \
   && apk add ca-certificates \
