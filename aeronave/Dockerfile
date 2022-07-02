@@ -2,6 +2,10 @@ FROM alpine:3.14
 
 WORKDIR /usr/src/app
 
+RUN mkdir /usr/share/app
+
+WORKDIR /usr/share/app
+
 RUN  apk update \
   && apk upgrade \
   && apk add ca-certificates \
@@ -20,15 +24,12 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   rm apache-maven-$MAVEN_VERSION-bin.tar.gz && \
   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
 
-
 EXPOSE 8080
-
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
 
 COPY . .
 
 RUN ./compile.sh
+
 
 CMD ["java", "-jar" , "app.jar"]
 

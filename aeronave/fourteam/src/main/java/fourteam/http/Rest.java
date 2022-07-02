@@ -82,8 +82,13 @@ public abstract class Rest {
             }
         }
         if (controller == null) {
-            response.setCode(HttpStatus.BAD_GATEWAY);
-            response.setBody("Controller not found");
+            try {
+                Download.handleRequest(t);
+            } catch (IOException e) {
+                response.setCode(HttpStatus.BAD_GATEWAY);
+                response.setBody("Controller not found");
+                e.printStackTrace();
+            }
             return;
         }
         try {
@@ -110,7 +115,7 @@ public abstract class Rest {
                 Path po = action.getPathSwagger(controller, tag);
                 doc.addPath(po);
             });
-            
+
         }
         PrintWriter writer;
         try {

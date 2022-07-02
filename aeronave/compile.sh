@@ -9,4 +9,5 @@ for obj in $arr_jar; do
     $(jar xf ../$obj)  
 done
 cd ../
-jar cfM "$name.jar" -C bin/ .
+jar cfM "$name.jar" -C bin/ .  # //TODOD  -C classPath
+rm -fr bin
