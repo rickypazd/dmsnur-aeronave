@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   database:
     image: mongo:latest
@@ -7,14 +7,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 80:80
-      - 27017:27017
     volumes:
       - ./db/:/data/db
   server:
-    image: aeronave-java
+    image: rickypazd/aeronave-java
     build: ./aeronave
     network_mode: "service:database"
-    
   web:
     image: nginx:latest
     network_mode: "service:database"

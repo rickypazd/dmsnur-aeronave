@@ -26,6 +26,5 @@ COPY . .
 
 RUN ./compile.sh
 
-
 CMD ["java", "-jar" , "app.jar"]
 

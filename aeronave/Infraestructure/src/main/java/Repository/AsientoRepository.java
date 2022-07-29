@@ -1,27 +1,26 @@
 package Repository;
 
-import java.util.UUID;
-
+import Context.IWriteDbContext;
 import Model.Aeronaves.Asiento;
 import Repositories.IAsientoRepository;
-import Context.IWriteDbContext;
 import fourteam.db.DbSet;
+import java.util.UUID;
 
 public class AsientoRepository implements IAsientoRepository {
 
-    private DbSet<Asiento> _asientos;
+  private DbSet<Asiento> _asientos;
 
-    public AsientoRepository(IWriteDbContext database) {
-        _asientos = database.Asiento;
-    }
+  public AsientoRepository(IWriteDbContext database) {
+    _asientos = database.Asiento;
+  }
 
-    @Override
-    public Asiento FindByKey(UUID key) {
-        return null;
-    }
+  @Override
+  public Asiento FindByKey(UUID key) {
+    return null;
+  }
 
-    @Override
-    public void Create(Asiento obj) {
-        _asientos.Add(obj);
-    }
+  @Override
+  public void Create(Asiento obj) {
+    _asientos.Add(obj);
+  }
 }

@@ -5,10 +5,9 @@ import fourteam.mediator.Request;
 
 public class CrearMarcaCommand implements Request<MarcaDto> {
 
-    public CrearMarcaCommand(MarcaDto ero) {
-        this.nombre = ero.nombre;
-    }
+  public CrearMarcaCommand(MarcaDto ero) {
+    this.nombre = ero.nombre;
+  }
 
-    public String nombre;
-
+  public String nombre;
 }

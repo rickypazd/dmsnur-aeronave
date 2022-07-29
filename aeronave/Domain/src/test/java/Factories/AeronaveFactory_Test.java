@@ -5,12 +5,13 @@ import org.junit.Test;
 
 public class AeronaveFactory_Test {
 
-    @Test
-    public void constructor_accept() {
-        Assert.assertNotNull(new AeronaveFactory());
-    }
-    @Test
-    public void create_accept() {
-        Assert.assertNotNull(new AeronaveFactory().Create("ASD"));
-    }
+  @Test
+  public void constructor_accept() {
+    Assert.assertNotNull(new AeronaveFactory());
+  }
+
+  @Test
+  public void create_accept() {
+    Assert.assertNotNull(new AeronaveFactory().Create("ASD"));
+  }
 }

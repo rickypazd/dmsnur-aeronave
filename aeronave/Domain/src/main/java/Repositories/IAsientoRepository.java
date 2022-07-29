@@ -1,11 +1,8 @@
 package Repositories;
 
-import java.util.UUID;
-
 import Model.Aeronaves.Aeronave;
 import Model.Aeronaves.Asiento;
 import core.IRepository;
+import java.util.UUID;
 
-public interface IAsientoRepository extends IRepository<Asiento, UUID> {
-
-}
+public interface IAsientoRepository extends IRepository<Asiento, UUID> {}

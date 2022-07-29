@@ -4,12 +4,10 @@ import Model.Marcas.Marca;
 
 public class MarcaFactory implements IMarcaFactory {
 
-    public MarcaFactory() {
+  public MarcaFactory() {}
 
-    }
-
-    @Override
-    public Marca Create(String nombre) {
-        return new Marca(nombre);
-    }
+  @Override
+  public Marca Create(String nombre) {
+    return new Marca(nombre);
+  }
 }

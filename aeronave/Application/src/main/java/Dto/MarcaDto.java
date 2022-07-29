@@ -4,11 +4,8 @@ import java.util.UUID;
 
 public class MarcaDto {
 
-    public UUID key;
-    public String nombre;
+  public UUID key;
+  public String nombre;
 
-    public MarcaDto() {
-    }
-
-
+  public MarcaDto() {}
 }
