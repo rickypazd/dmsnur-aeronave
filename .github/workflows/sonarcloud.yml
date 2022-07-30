@@ -1,9 +1,9 @@
-name: Build
+name: Sonarcloud test
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   pull_request:
-    branches: ["main"]
+    branches: ["master"]
     types: [opened, synchronize, reopened]
 jobs:
   build:
