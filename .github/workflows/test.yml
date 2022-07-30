@@ -1,6 +1,7 @@
 name: Test
 on:
   push:
+    branches: ["main"]
 
 jobs:
   ssh_deploy:
@@ -26,4 +27,4 @@ jobs:
               StrictHostKeyChecking no
           END
       - name: Test ssh write
-        run: ssh staging 'echo "hola mundo" > text.txt'
+        run: ssh staging 'cd dmsnur-aeronave && ./deploy.sh'
