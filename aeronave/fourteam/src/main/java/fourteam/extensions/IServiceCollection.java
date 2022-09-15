@@ -1,5 +1,7 @@
 package fourteam.extensions;
 
+import fourteam.massTransit.IMassTransit;
+import fourteam.massTransit.IPublishEndpoint;
 import fourteam.mediator.IMediator;
 import fourteam.mediator.Mediator;
 import java.util.HashMap;
@@ -64,5 +66,17 @@ public class IServiceCollection {
 
   public static void AddMediator() {
     AddScoped(Mediator.class, IMediator.class);
+  }
+
+  public interface MSFunction<E> {
+    void run(E str);
+  }
+
+  public static void AddMassTransit(MSFunction<IMassTransit> func) {
+    IServiceCollection.AddSingleton(IMassTransit.class);
+    IServiceCollection.AddSingleton(IPublishEndpoint.class);
+    IMassTransit mass = (IMassTransit) IServiceCollection.GetSingleton(IMassTransit.class);
+    func.run(mass);
+    // AddScoped(Mediator.class, IMediator.class);
   }
 }

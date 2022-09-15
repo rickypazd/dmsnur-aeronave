@@ -1,9 +1,10 @@
 package core;
 
+import fourteam.mediator.Notification;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public abstract class IntegrationEvent {
+public abstract class IntegrationEvent implements Notification {
 
   public LocalDateTime OcurredOn;
   public UUID Key;
