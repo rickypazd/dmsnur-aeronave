@@ -13,8 +13,6 @@ public class GetAllMarcaQuery_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      GetAllMarcaQuery.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(GetAllMarcaQuery.class.getConstructors()[0].canAccess(null));
   }
 }

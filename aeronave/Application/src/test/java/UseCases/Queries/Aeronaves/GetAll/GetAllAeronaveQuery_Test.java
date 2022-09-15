@@ -13,8 +13,6 @@ public class GetAllAeronaveQuery_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      GetAllAeronaveQuery.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(GetAllAeronaveQuery.class.getConstructors()[0].canAccess(null));
   }
 }

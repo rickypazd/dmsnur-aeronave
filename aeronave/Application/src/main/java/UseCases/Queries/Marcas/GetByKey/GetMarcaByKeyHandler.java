@@ -7,8 +7,7 @@ import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
 
-public class GetMarcaByKeyHandler
-  implements RequestHandler<GetMarcaByKeyQuery, MarcaDto> {
+public class GetMarcaByKeyHandler implements RequestHandler<GetMarcaByKeyQuery, MarcaDto> {
 
   private IMarcaRepository _marcaRepository;
 

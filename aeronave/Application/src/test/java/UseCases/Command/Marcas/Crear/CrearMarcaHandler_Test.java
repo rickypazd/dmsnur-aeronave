@@ -36,11 +36,7 @@ public class CrearMarcaHandler_Test {
     Marca entity = new Marca(nombre);
     when(marcaFactory.Create(nombre)).thenReturn(entity);
 
-    CrearMarcaHandler handler = new CrearMarcaHandler(
-      marcaFactory,
-      marcaRepository,
-      _unitOfWork
-    );
+    CrearMarcaHandler handler = new CrearMarcaHandler(marcaFactory, marcaRepository, _unitOfWork);
 
     MarcaDto dto = new MarcaDto();
     dto.nombre = nombre;
@@ -56,11 +52,7 @@ public class CrearMarcaHandler_Test {
   @Test
   public void HandleFailed() throws HttpException {
     when(marcaRepository.FindByKey(any())).thenReturn(null);
-    CrearMarcaHandler handler = new CrearMarcaHandler(
-      marcaFactory,
-      marcaRepository,
-      _unitOfWork
-    );
+    CrearMarcaHandler handler = new CrearMarcaHandler(marcaFactory, marcaRepository, _unitOfWork);
     MarcaDto dto = new MarcaDto();
     dto.nombre = "ABC";
     CrearMarcaCommand command = new CrearMarcaCommand(dto);

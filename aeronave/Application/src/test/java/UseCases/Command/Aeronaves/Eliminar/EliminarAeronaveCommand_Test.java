@@ -12,16 +12,12 @@ public class EliminarAeronaveCommand_Test {
     UUID key = UUID.randomUUID();
     AeronaveDto aeronave = new AeronaveDto();
     aeronave.setKey(key);
-    EliminarAeronaveCommand command = new EliminarAeronaveCommand(
-      aeronave.getKey()
-    );
+    EliminarAeronaveCommand command = new EliminarAeronaveCommand(aeronave.getKey());
     Assert.assertEquals(key, command.aeronave.getKey());
   }
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      EliminarAeronaveCommand.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(EliminarAeronaveCommand.class.getConstructors()[0].canAccess(null));
   }
 }

@@ -35,15 +35,7 @@ public class WriteDbContext extends IWriteDbContext {
     Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
     mongoLogger.setLevel(Level.SEVERE);
     MongoClientURI uri = new MongoClientURI(
-      "mongodb://" +
-      DB_USER +
-      ":" +
-      DB_PASS +
-      "@" +
-      DB_HOST +
-      ":" +
-      DB_PORT +
-      "/?authSource=admin"
+      "mongodb://" + DB_USER + ":" + DB_PASS + "@" + DB_HOST + ":" + DB_PORT + "/?authSource=admin"
     );
     this.client = new MongoClient(uri);
     this.db = client.getDatabase(DB_NAME);
@@ -77,9 +69,7 @@ public class WriteDbContext extends IWriteDbContext {
   @Override
   public void Add(Object obj, DbSet dbSet) {
     this.db.getCollection(dbSet.getName())
-      .insertOne(
-        Document.parse(JSON.getInstance().toJson(obj, obj.getClass()))
-      );
+      .insertOne(Document.parse(JSON.getInstance().toJson(obj, obj.getClass())));
   }
 
   @Override

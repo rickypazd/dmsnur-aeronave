@@ -7,8 +7,7 @@ import Repositories.IUnitOfWork;
 import fourteam.http.Exception.HttpException;
 import fourteam.mediator.RequestHandler;
 
-public class CrearAeronaveHandler
-  implements RequestHandler<CrearAeronaveCommand, Aeronave> {
+public class CrearAeronaveHandler implements RequestHandler<CrearAeronaveCommand, Aeronave> {
 
   private IAeronaveFactory _aeronaveFactory;
   private IAeronaveRepository _aeronaveRepository;

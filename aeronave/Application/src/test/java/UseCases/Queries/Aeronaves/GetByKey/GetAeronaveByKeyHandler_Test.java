@@ -17,9 +17,7 @@ import org.mockito.Mockito;
 public class GetAeronaveByKeyHandler_Test {
 
   // IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
-  IAeronaveRepository aeronaveRepository = Mockito.mock(
-    IAeronaveRepository.class
-  );
+  IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
 
   // IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
@@ -29,9 +27,7 @@ public class GetAeronaveByKeyHandler_Test {
     a.agregarAsiento(new Asiento(a.key, 1, "A1"));
 
     when(aeronaveRepository.FindByKey(any())).thenReturn(a);
-    GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(
-      aeronaveRepository
-    );
+    GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);
     GetAeronaveByKeyQuery query = new GetAeronaveByKeyQuery(a.key);
     try {
       Assert.assertEquals(a.key, handler.handle(query).key);
@@ -45,9 +41,7 @@ public class GetAeronaveByKeyHandler_Test {
   public void HandleFail() {
     Aeronave a = new Aeronave("ASD");
     when(aeronaveRepository.FindByKey(any())).thenReturn(null);
-    GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(
-      aeronaveRepository
-    );
+    GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);
     GetAeronaveByKeyQuery query = new GetAeronaveByKeyQuery(a.key);
     // try {
     // handler.handle(query);

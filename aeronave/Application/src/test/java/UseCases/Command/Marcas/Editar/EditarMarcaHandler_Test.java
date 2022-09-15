@@ -40,11 +40,7 @@ public class EditarMarcaHandler_Test {
     when(marcaFactory.Create(nombre)).thenReturn(entity);
     when(marcaRepository.FindByKey(any())).thenReturn(entity);
 
-    EditarMarcaHandler handler = new EditarMarcaHandler(
-      marcaFactory,
-      marcaRepository,
-      _unitOfWork
-    );
+    EditarMarcaHandler handler = new EditarMarcaHandler(marcaFactory, marcaRepository, _unitOfWork);
 
     MarcaDto dto = new MarcaDto();
     dto.key = key;
@@ -60,11 +56,7 @@ public class EditarMarcaHandler_Test {
   @Test
   public void HandleFailed() throws HttpException {
     when(marcaRepository.FindByKey(any())).thenReturn(null);
-    EditarMarcaHandler handler = new EditarMarcaHandler(
-      marcaFactory,
-      marcaRepository,
-      _unitOfWork
-    );
+    EditarMarcaHandler handler = new EditarMarcaHandler(marcaFactory, marcaRepository, _unitOfWork);
     MarcaDto dto = new MarcaDto();
     dto.nombre = "ABC";
     dto.key = UUID.randomUUID();

@@ -25,7 +25,7 @@ public class UnitOfWork_Test {
   public void commit_accept() {
     UnitOfWork unitOfWork = new UnitOfWork(_context, _mediator);
     List<Object> list = new ArrayList<Object>();
-    list.add(new DomainEvent());
+    list.add(new DomainEvent() {});
     when(_context.getDomainEvents()).thenReturn(list);
     try {
       unitOfWork.commit();

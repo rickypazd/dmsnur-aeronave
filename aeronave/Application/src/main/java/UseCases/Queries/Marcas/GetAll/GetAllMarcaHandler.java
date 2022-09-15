@@ -5,8 +5,7 @@ import Repositories.IMarcaRepository;
 import fourteam.mediator.RequestHandler;
 import java.util.List;
 
-public class GetAllMarcaHandler
-  implements RequestHandler<GetAllMarcaQuery, List<Marca>> {
+public class GetAllMarcaHandler implements RequestHandler<GetAllMarcaQuery, List<Marca>> {
 
   private IMarcaRepository _marcaRepository;
 

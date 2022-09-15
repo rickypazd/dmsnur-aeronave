@@ -21,8 +21,6 @@ public class CrearMarcaCommand_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      CrearMarcaCommand.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(CrearMarcaCommand.class.getConstructors()[0].canAccess(null));
   }
 }

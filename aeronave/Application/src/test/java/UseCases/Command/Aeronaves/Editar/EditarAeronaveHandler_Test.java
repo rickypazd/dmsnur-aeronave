@@ -20,9 +20,7 @@ import org.mockito.Mockito;
 public class EditarAeronaveHandler_Test {
 
   IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
-  IAeronaveRepository aeronaveRepository = Mockito.mock(
-    IAeronaveRepository.class
-  );
+  IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
   IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   @Before

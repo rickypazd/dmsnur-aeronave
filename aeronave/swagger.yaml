@@ -114,8 +114,7 @@ paths:
       responses:
         "200": {description: Response 200}
       tags: [/marca]
-info:
-  {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
+info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
 tags:
   - {name: /marca, description: /marca_descripcion}
   - {name: /aeronave, description: /aeronave_descripcion}

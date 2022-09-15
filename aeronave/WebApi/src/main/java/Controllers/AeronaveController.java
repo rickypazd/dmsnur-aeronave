@@ -36,16 +36,14 @@ public class AeronaveController {
   }
 
   @GetMapping("/{key}")
-  public Response<AeronaveDto> getByKey(
-    @PathVariable GetAeronaveByKeyQuery request
-  ) throws HttpException {
+  public Response<AeronaveDto> getByKey(@PathVariable GetAeronaveByKeyQuery request)
+    throws HttpException {
     return _mediator.send(request);
   }
 
   @PostMapping("/registro")
-  public Response<Aeronave> register(
-    @RequestBody CrearAeronaveCommand aeronave
-  ) throws HttpException {
+  public Response<Aeronave> register(@RequestBody CrearAeronaveCommand aeronave)
+    throws HttpException {
     return _mediator.send(aeronave);
   }
 
@@ -59,9 +57,8 @@ public class AeronaveController {
   }
 
   @DeleteMapping("/{key}")
-  public Response<Aeronave> delete(
-    @PathVariable EliminarAeronaveCommand request
-  ) throws HttpException {
+  public Response<Aeronave> delete(@PathVariable EliminarAeronaveCommand request)
+    throws HttpException {
     return _mediator.send(request);
   }
 }

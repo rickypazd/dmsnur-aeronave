@@ -17,8 +17,6 @@ public class CrearAeronaveCommand_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      CrearAeronaveCommand.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(CrearAeronaveCommand.class.getConstructors()[0].canAccess(null));
   }
 }

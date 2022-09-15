@@ -35,8 +35,7 @@ public abstract class Entity<TId> {
     this.key = key;
   }
 
-  protected void CheckRule(BussinessRule rule)
-    throws BussinessRuleValidateExeption {
+  protected void CheckRule(BussinessRule rule) throws BussinessRuleValidateExeption {
     if (rule == null) {
       throw new IllegalArgumentException("Rule cannot be null");
     }

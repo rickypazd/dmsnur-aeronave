@@ -8,8 +8,7 @@ import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
 
-public class GetAeronaveByKeyHandler
-  implements RequestHandler<GetAeronaveByKeyQuery, AeronaveDto> {
+public class GetAeronaveByKeyHandler implements RequestHandler<GetAeronaveByKeyQuery, AeronaveDto> {
 
   private IAeronaveRepository _aeronaveRepository;
 
@@ -18,8 +17,7 @@ public class GetAeronaveByKeyHandler
   }
 
   @Override
-  public AeronaveDto handle(GetAeronaveByKeyQuery request)
-    throws HttpException {
+  public AeronaveDto handle(GetAeronaveByKeyQuery request) throws HttpException {
     Aeronave aeronave = _aeronaveRepository.FindByKey(request.key);
     if (aeronave == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Aeronave no encontrada");
@@ -30,9 +28,7 @@ public class GetAeronaveByKeyHandler
     aeronave.asientos
       .iterator()
       .forEachRemaining(obj -> {
-        aeronaveDto.asientos.add(
-          new AsientoDto(obj.key, obj.numero, obj.clase)
-        );
+        aeronaveDto.asientos.add(new AsientoDto(obj.key, obj.numero, obj.clase));
       });
     return aeronaveDto;
   }

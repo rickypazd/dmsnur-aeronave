@@ -9,6 +9,7 @@ import UseCases.Command.Asientos.UpdateAsientosWhenAeronaveCreado.UpdateAsientos
 import UseCases.Command.Marcas.Crear.CrearMarcaHandler;
 import UseCases.Command.Marcas.Editar.EditarMarcaHandler;
 import UseCases.Command.Marcas.Eliminar.EliminarMarcaHandler;
+import UseCases.DomainEventHandler.Aeronave.PublishIntegrationEventWhenAeronaveCreadoHandler;
 import UseCases.Queries.Aeronaves.GetAll.GetAllAeronaveHandler;
 import UseCases.Queries.Aeronaves.GetByKey.GetAeronaveByKeyHandler;
 import UseCases.Queries.Marcas.GetAll.GetAllMarcaHandler;
@@ -33,10 +34,8 @@ public class Application {
     IMediator.registerHandler(EliminarMarcaHandler.class);
     IMediator.registerHandler(EditarMarcaHandler.class);
     IMediator.registerHandler(UpdateAsientosWhenAeronaveCreadoHandler.class);
-    IServiceCollection.AddTransient(
-      IAeronaveFactory.class,
-      AeronaveFactory.class
-    );
+    IMediator.registerHandler(PublishIntegrationEventWhenAeronaveCreadoHandler.class);
+    IServiceCollection.AddTransient(IAeronaveFactory.class, AeronaveFactory.class);
     IServiceCollection.AddTransient(IMarcaFactory.class, MarcaFactory.class);
 
     Domain.addDomain();

@@ -23,9 +23,7 @@ public abstract class Rest {
     try {
       Controller controller = new Controller(RestController);
       if (controllers.containsKey(controller.getRoute())) {
-        throw new RuntimeException(
-          "Controller duplicated: " + controller.getRoute() + ""
-        );
+        throw new RuntimeException("Controller duplicated: " + controller.getRoute() + "");
       }
       controllers.put(controller.getRoute(), controller);
     } catch (Exception e) {
@@ -39,10 +37,7 @@ public abstract class Rest {
 
   public static void start(int port) {
     HttpServer server;
-    System.setProperty(
-      "org.eclipse.jetty.util.log.class",
-      "org.eclipse.jetty.util.log.StdErrLog"
-    );
+    System.setProperty("org.eclipse.jetty.util.log.class", "org.eclipse.jetty.util.log.StdErrLog");
     System.setProperty("org.eclipse.jetty.LEVEL", "OFF");
     try {
       server = HttpServer.create(new InetSocketAddress(port), 0);
@@ -71,11 +66,7 @@ public abstract class Rest {
     os.close();
   }
 
-  private static void onMessage(
-    HttpExchange t,
-    String data,
-    Response response
-  ) {
+  private static void onMessage(HttpExchange t, String data, Response response) {
     String url = t.getRequestURI().toString();
     url = url.split("\\?")[0];
     Controller controller = null;

@@ -8,9 +8,7 @@ import java.util.List;
 
 public class MediatorPlanNotify {
 
-  public static List<NotificationHandler<Notification>> getInstances(
-    Class<?> messageType
-  ) {
+  public static List<NotificationHandler<Notification>> getInstances(Class<?> messageType) {
     List<NotificationHandler<Notification>> instances = new ArrayList<>();
     return instances;
   }
@@ -29,14 +27,10 @@ public class MediatorPlanNotify {
     this.mediator = mediator;
     handlerInstanceBuilder = getBean(handlerType, messageType);
     try {
-      instance =
-        DependencyInjection.createInstance(handlerInstanceBuilder, mediator);
-      handleMethod =
-        handlerInstanceBuilder.getMethod(handlerMethodName, Notification.class);
+      instance = DependencyInjection.createInstance(handlerInstanceBuilder, mediator);
+      handleMethod = handlerInstanceBuilder.getMethod(handlerMethodName, Notification.class);
     } catch (Exception e) {
-      System.out.println(
-        "Not found notification handler for " + messageType.getName()
-      );
+      System.out.println("Not found notification handler for " + messageType.getName());
     }
   }
 

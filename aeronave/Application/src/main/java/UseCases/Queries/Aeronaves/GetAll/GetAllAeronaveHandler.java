@@ -5,8 +5,7 @@ import Repositories.IAeronaveRepository;
 import fourteam.mediator.RequestHandler;
 import java.util.List;
 
-public class GetAllAeronaveHandler
-  implements RequestHandler<GetAllAeronaveQuery, List<Aeronave>> {
+public class GetAllAeronaveHandler implements RequestHandler<GetAllAeronaveQuery, List<Aeronave>> {
 
   private IAeronaveRepository _aeronaveRepository;
 

@@ -30,29 +30,24 @@ public class MarcaController {
   }
 
   @GetMapping("/{key}")
-  public Response<Marca> getByKey(@PathVariable GetMarcaByKeyQuery request)
-    throws HttpException {
+  public Response<Marca> getByKey(@PathVariable GetMarcaByKeyQuery request) throws HttpException {
     return _mediator.send(request);
   }
 
   @PostMapping("/registro")
-  public Response<Marca> register(@RequestBody CrearMarcaCommand Marca)
-    throws HttpException {
+  public Response<Marca> register(@RequestBody CrearMarcaCommand Marca) throws HttpException {
     return _mediator.send(Marca);
   }
 
   @PutMapping("/{key}")
-  public Response<Marca> edit(
-    @RequestBody Marca Marca,
-    @PathVariable EditarMarcaCommand request
-  ) throws HttpException {
+  public Response<Marca> edit(@RequestBody Marca Marca, @PathVariable EditarMarcaCommand request)
+    throws HttpException {
     request.marca.nombre = Marca.nombre;
     return _mediator.send(request);
   }
 
   @DeleteMapping("/{key}")
-  public Response<Marca> delete(@PathVariable EliminarMarcaCommand request)
-    throws HttpException {
+  public Response<Marca> delete(@PathVariable EliminarMarcaCommand request) throws HttpException {
     return _mediator.send(request);
   }
 }

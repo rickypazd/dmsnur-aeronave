@@ -18,8 +18,6 @@ public class EditarAeronaveCommand_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      EditarAeronaveCommand.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(EditarAeronaveCommand.class.getConstructors()[0].canAccess(null));
   }
 }

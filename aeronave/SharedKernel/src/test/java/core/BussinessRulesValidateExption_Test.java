@@ -10,9 +10,7 @@ public class BussinessRulesValidateExption_Test {
 
   @Test
   public void constructor_accept() {
-    BussinessRuleValidateExeption rule = new BussinessRuleValidateExeption(
-      "detail"
-    );
+    BussinessRuleValidateExeption rule = new BussinessRuleValidateExeption("detail");
     Assert.assertNotNull(rule);
     rule.getDetails();
     rule.getBrokenRule();

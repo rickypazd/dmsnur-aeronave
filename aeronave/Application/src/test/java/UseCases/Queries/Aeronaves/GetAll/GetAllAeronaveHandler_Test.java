@@ -15,9 +15,7 @@ import org.mockito.Mockito;
 public class GetAllAeronaveHandler_Test {
 
   // IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
-  IAeronaveRepository aeronaveRepository = Mockito.mock(
-    IAeronaveRepository.class
-  );
+  IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
 
   // IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
@@ -27,9 +25,7 @@ public class GetAllAeronaveHandler_Test {
     List<Aeronave> list = new ArrayList<Aeronave>();
     list.add(a);
     when(aeronaveRepository.GetAll()).thenReturn(list);
-    GetAllAeronaveHandler handler = new GetAllAeronaveHandler(
-      aeronaveRepository
-    );
+    GetAllAeronaveHandler handler = new GetAllAeronaveHandler(aeronaveRepository);
     GetAllAeronaveQuery query = new GetAllAeronaveQuery();
     Assert.assertEquals(list, handler.handle(query));
     verify(aeronaveRepository).GetAll();

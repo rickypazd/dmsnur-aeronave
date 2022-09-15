@@ -22,9 +22,7 @@ public class UpdateAsientosWhenAeronaveCreadoHandler_Test {
   @Test
   public void constructorIsPrivate() {
     Assert.assertTrue(
-      UpdateAsientosWhenAeronaveCreadoHandler.class.getConstructors()[0].canAccess(
-          null
-        )
+      UpdateAsientosWhenAeronaveCreadoHandler.class.getConstructors()[0].canAccess(null)
     );
   }
 }

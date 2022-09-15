@@ -18,9 +18,7 @@ import org.mockito.Mockito;
 public class CrearAeronaveHandler_Test {
 
   IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
-  IAeronaveRepository aeronaveRepository = Mockito.mock(
-    IAeronaveRepository.class
-  );
+  IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
   IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   @Before
@@ -47,10 +45,7 @@ public class CrearAeronaveHandler_Test {
     verify(aeronaveRepository).Create(resp);
     verify(_unitOfWork).commit();
 
-    Assert.assertEquals(
-      AeronaveCreado.class,
-      resp.domainEvents.get(0).getClass()
-    );
+    Assert.assertEquals(AeronaveCreado.class, resp.domainEvents.get(0).getClass());
     Assert.assertEquals(matricula, resp.matricula);
   }
 }

@@ -11,9 +11,7 @@ public class UpdateAsientosWhenAeronaveCreadoHandler
   private IAsientoRepository _asientoRepository;
 
   // private
-  public UpdateAsientosWhenAeronaveCreadoHandler(
-    IAsientoRepository asientoRepository
-  ) {
+  public UpdateAsientosWhenAeronaveCreadoHandler(IAsientoRepository asientoRepository) {
     this._asientoRepository = asientoRepository;
   }
 

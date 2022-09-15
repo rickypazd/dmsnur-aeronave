@@ -11,8 +11,7 @@ import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
 
-public class EliminarMarcaHandler
-  implements RequestHandler<EliminarMarcaCommand, Marca> {
+public class EliminarMarcaHandler implements RequestHandler<EliminarMarcaCommand, Marca> {
 
   private IMarcaFactory _marcaFactory;
   private IMarcaRepository _marcaRepository;

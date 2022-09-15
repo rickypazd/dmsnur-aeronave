@@ -8,8 +8,7 @@ import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
 
-public class EditarAeronaveHandler
-  implements RequestHandler<EditarAeronaveCommand, Aeronave> {
+public class EditarAeronaveHandler implements RequestHandler<EditarAeronaveCommand, Aeronave> {
 
   private IAeronaveFactory _aeronaveFactory;
   private IAeronaveRepository _aeronaveRepository;

@@ -45,13 +45,7 @@ public class IMediator implements Mediator {
     Response<E> response = new Response<>();
     MediatorPlanRequest<T, E> plan;
     try {
-      plan =
-        new MediatorPlanRequest<>(
-          RequestHandler.class,
-          "handle",
-          request.getClass(),
-          this
-        );
+      plan = new MediatorPlanRequest<>(RequestHandler.class, "handle", request.getClass(), this);
       response.data = plan.invoke(request);
     } catch (
       NoSuchMethodException
@@ -77,12 +71,7 @@ public class IMediator implements Mediator {
     MediatorPlanNotify plan;
     try {
       plan =
-        new MediatorPlanNotify(
-          NotificationHandler.class,
-          "handle",
-          notification.getClass(),
-          this
-        );
+        new MediatorPlanNotify(NotificationHandler.class, "handle", notification.getClass(), this);
       plan.invoke(notification);
     } catch (Exception e) {
       response.exception = (Exception) e;

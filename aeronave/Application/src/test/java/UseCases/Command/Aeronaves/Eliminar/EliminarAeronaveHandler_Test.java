@@ -20,9 +20,7 @@ import org.mockito.Mockito;
 public class EliminarAeronaveHandler_Test {
 
   IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
-  IAeronaveRepository aeronaveRepository = Mockito.mock(
-    IAeronaveRepository.class
-  );
+  IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
   IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   @Before
@@ -47,9 +45,7 @@ public class EliminarAeronaveHandler_Test {
     AeronaveDto aeronaveDto = new AeronaveDto();
     aeronaveDto.matricula = matricula;
     aeronaveDto.setKey(key);
-    EliminarAeronaveCommand command = new EliminarAeronaveCommand(
-      aeronaveDto.getKey()
-    );
+    EliminarAeronaveCommand command = new EliminarAeronaveCommand(aeronaveDto.getKey());
     Aeronave resp = handler.handle(command);
     Assert.assertEquals(a.key, resp.key);
   }
@@ -67,9 +63,7 @@ public class EliminarAeronaveHandler_Test {
     AeronaveDto aeronaveDto = new AeronaveDto();
     aeronaveDto.matricula = "ABC";
 
-    EliminarAeronaveCommand command = new EliminarAeronaveCommand(
-      aeronaveDto.key
-    );
+    EliminarAeronaveCommand command = new EliminarAeronaveCommand(aeronaveDto.key);
     try {
       Aeronave resp = handler.handle(command);
     } catch (HttpException e) {

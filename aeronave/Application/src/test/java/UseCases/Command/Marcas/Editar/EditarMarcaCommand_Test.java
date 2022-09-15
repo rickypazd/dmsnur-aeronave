@@ -21,8 +21,6 @@ public class EditarMarcaCommand_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      EditarMarcaCommand.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(EditarMarcaCommand.class.getConstructors()[0].canAccess(null));
   }
 }
