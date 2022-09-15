@@ -1,5 +1,6 @@
 package UseCases.Consumers;
 
+import core.IRepository;
 import core.IntegrationEvent;
 import fourteam.massTransit.IConsumer;
 import fourteam.mediator.IMediator;
@@ -15,6 +16,7 @@ public class CheckInCreadoConsumer extends IConsumer<IntegrationEvents.AeronaveC
   @Override
   public void Consume(IntegrationEvents.AeronaveCreado object) {
     // TODO Auto-generated method stub
+
     System.out.println("Entro al consumido");
   }
 }
