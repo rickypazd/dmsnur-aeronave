@@ -5,9 +5,11 @@ import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
 import Repositories.IUnitOfWork;
 import fourteam.http.Exception.HttpException;
+import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
+import java.util.UUID;
 
-public class CrearAeronaveHandler implements RequestHandler<CrearAeronaveCommand, Aeronave> {
+public class CrearAeronaveHandler implements RequestHandler<CrearAeronaveCommand, UUID> {
 
   private IAeronaveFactory _aeronaveFactory;
   private IAeronaveRepository _aeronaveRepository;
@@ -24,11 +26,15 @@ public class CrearAeronaveHandler implements RequestHandler<CrearAeronaveCommand
   }
 
   @Override
-  public Aeronave handle(CrearAeronaveCommand request) throws Exception {
-    Aeronave aeronave = _aeronaveFactory.Create(request.matricula);
+  public UUID handle(CrearAeronaveCommand request) throws Exception {
+    Aeronave aeronave = _aeronaveRepository.FindByMatricula(request.matricula);
+    if (aeronave != null) {
+      throw new HttpException(HttpStatus.BAD_REQUEST, "Ya existe una aeronave con esta matricula.");
+    }
+    aeronave = _aeronaveFactory.Create(request.matricula);
     aeronave.eventCreado();
     _aeronaveRepository.Create(aeronave);
     _unitOfWork.commit();
-    return aeronave;
+    return aeronave.key;
   }
 }

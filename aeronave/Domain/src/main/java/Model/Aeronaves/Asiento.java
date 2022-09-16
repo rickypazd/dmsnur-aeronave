@@ -13,7 +13,6 @@ public class Asiento extends Entity<UUID> {
     key = UUID.randomUUID();
     this.keyAeronave = keyAeronave;
     this.numero = numero;
-
     this.clase = clase;
   }
 }

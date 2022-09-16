@@ -7,8 +7,9 @@ import Repositories.IUnitOfWork;
 import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
+import java.util.UUID;
 
-public class EliminarAeronaveHandler implements RequestHandler<EliminarAeronaveCommand, Aeronave> {
+public class EliminarAeronaveHandler implements RequestHandler<EliminarAeronaveCommand, UUID> {
 
   private IAeronaveFactory _aeronaveFactory;
   private IAeronaveRepository _aeronaveRepository;
@@ -25,12 +26,12 @@ public class EliminarAeronaveHandler implements RequestHandler<EliminarAeronaveC
   }
 
   @Override
-  public Aeronave handle(EliminarAeronaveCommand request) throws Exception {
+  public UUID handle(EliminarAeronaveCommand request) throws Exception {
     Aeronave aeronave = _aeronaveRepository.FindByKey(request.aeronave.key);
     if (aeronave == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Aeronave no encontrada");
     }
 
-    return _aeronaveRepository.Delete(aeronave);
+    return _aeronaveRepository.Delete(aeronave).key;
   }
 }

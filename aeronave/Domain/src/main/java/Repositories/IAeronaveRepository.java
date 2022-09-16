@@ -11,4 +11,6 @@ public interface IAeronaveRepository extends IRepository<Aeronave, UUID> {
   public Aeronave Delete(Aeronave aeronave) throws Exception;
 
   public Aeronave Update(Aeronave aeronave) throws Exception;
+
+  public Aeronave FindByMatricula(String matricula) throws Exception;
 }

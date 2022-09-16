@@ -2,6 +2,7 @@ import Factories.AeronaveFactory;
 import Factories.IAeronaveFactory;
 import Factories.IMarcaFactory;
 import Factories.MarcaFactory;
+import UseCases.Command.Aeronaves.AddAsiento.AddAsientoAeronaveHandler;
 import UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler;
 import UseCases.Command.Aeronaves.Editar.EditarAeronaveHandler;
 import UseCases.Command.Aeronaves.Eliminar.EliminarAeronaveHandler;
@@ -27,12 +28,15 @@ public class Application {
     IMediator.registerHandler(CrearAeronaveHandler.class);
     IMediator.registerHandler(EliminarAeronaveHandler.class);
     IMediator.registerHandler(EditarAeronaveHandler.class);
+    IMediator.registerHandler(AddAsientoAeronaveHandler.class);
+
     // MARCA
     IMediator.registerHandler(GetAllMarcaHandler.class);
     IMediator.registerHandler(GetMarcaByKeyHandler.class);
     IMediator.registerHandler(CrearMarcaHandler.class);
     IMediator.registerHandler(EliminarMarcaHandler.class);
     IMediator.registerHandler(EditarMarcaHandler.class);
+
     IMediator.registerHandler(UpdateAsientosWhenAeronaveCreadoHandler.class);
     IMediator.registerHandler(PublishIntegrationEventWhenAeronaveCreadoHandler.class);
     IServiceCollection.AddTransient(IAeronaveFactory.class, AeronaveFactory.class);

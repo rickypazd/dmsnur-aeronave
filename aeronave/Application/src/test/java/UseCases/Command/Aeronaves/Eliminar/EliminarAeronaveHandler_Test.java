@@ -46,8 +46,8 @@ public class EliminarAeronaveHandler_Test {
     aeronaveDto.matricula = matricula;
     aeronaveDto.setKey(key);
     EliminarAeronaveCommand command = new EliminarAeronaveCommand(aeronaveDto.getKey());
-    Aeronave resp = handler.handle(command);
-    Assert.assertEquals(a.key, resp.key);
+    UUID resp = handler.handle(command);
+    Assert.assertEquals(a.key, resp);
   }
 
   @Test
@@ -65,7 +65,7 @@ public class EliminarAeronaveHandler_Test {
 
     EliminarAeronaveCommand command = new EliminarAeronaveCommand(aeronaveDto.key);
     try {
-      Aeronave resp = handler.handle(command);
+      UUID resp = handler.handle(command);
     } catch (HttpException e) {
       Assert.assertEquals(400, e.getCode());
     }

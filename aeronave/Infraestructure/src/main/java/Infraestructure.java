@@ -1,7 +1,9 @@
 import Context.IWriteDbContext;
 import Repositories.*;
 import Repository.*;
-import UseCases.Consumers.CheckInCreadoConsumer;
+import UseCases.Consumers.AeronaveCreadoConsumer;
+import UseCases.Consumers.TripulacionCreadoConsumer;
+import fourteam.config.Config;
 import fourteam.extensions.IServiceCollection;
 
 public class Infraestructure {
@@ -19,18 +21,13 @@ public class Infraestructure {
 
   private static void AddRabbitMq() {
     IServiceCollection.AddMassTransit(config -> {
-      // config.AddConsumer(CheckInCreadoConsumer.class).Endpoint(endpoint -> {
-      // endpoint.Name = CheckInCreadoConsumer.QueueName;
-      // });
-      config.AddConsumer(CheckInCreadoConsumer.class);
+      config.AddConsumer(TripulacionCreadoConsumer.class);
+      config.AddConsumer(AeronaveCreadoConsumer.class);
 
       config.UsingRabbitMq((context, cfg) -> {
-        cfg.Host = "147.182.209.156";
-        cfg.User = "admin";
-        cfg.Password = "admin";
-        // cfg.ReceiveEndpoint(CheckInCreadoConsumer.QueueName, endpoint -> {
-        //   endpoint.ConfigureConsumer(CheckInCreadoConsumer.class);
-        // });
+        cfg.Host = Config.getProperty("rabit.host");
+        cfg.User = Config.getProperty("rabit.user");
+        cfg.Password = Config.getProperty("rabit.pass");
       });
     });
   }

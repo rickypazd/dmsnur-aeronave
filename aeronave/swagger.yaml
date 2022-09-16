@@ -92,6 +92,22 @@ paths:
           name: key
           required: true
       tags: [/aeronave]
+  /aeronave/AddAsiento/{key}:
+    put:
+      summary: /aeronave addAsiento
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /aeronave_addAsiento
+      responses:
+        "200": {description: Response 200}
+      parameters:
+        - schema: {type: string}
+          in: path
+          name: key
+          required: true
+      tags: [/aeronave]
   /aeronave/registro:
     post:
       summary: /aeronave register

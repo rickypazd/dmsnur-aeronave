@@ -1,7 +1,9 @@
 package Controllers;
 
 import Dto.AeronaveDto;
+import Dto.AsientoDto;
 import Model.Aeronaves.Aeronave;
+import UseCases.Command.Aeronaves.AddAsiento.AddAsientoAeronaveCommand;
 import UseCases.Command.Aeronaves.Crear.CrearAeronaveCommand;
 import UseCases.Command.Aeronaves.Editar.EditarAeronaveCommand;
 import UseCases.Command.Aeronaves.Eliminar.EliminarAeronaveCommand;
@@ -19,6 +21,7 @@ import fourteam.http.annotation.RestController;
 import fourteam.mediator.Mediator;
 import fourteam.mediator.Response;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/aeronave")
@@ -31,13 +34,12 @@ public class AeronaveController {
   }
 
   @GetMapping("/")
-  public List<Aeronave> getAll() throws HttpException {
+  public List<AeronaveDto> getAll() throws HttpException {
     try {
-      Response<List<Aeronave>> lista = _mediator.send(new GetAllAeronaveQuery());
+      Response<List<AeronaveDto>> lista = _mediator.send(new GetAllAeronaveQuery());
       return lista.data;
     } catch (Exception e) {
-      e.printStackTrace();
-      throw new HttpException(404, "Error " + e.getMessage());
+      throw (HttpException) e.getCause();
     }
   }
 
@@ -47,40 +49,43 @@ public class AeronaveController {
     try {
       return _mediator.send(request);
     } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
+      throw (HttpException) e.getCause();
     }
   }
 
   @PostMapping("/registro")
-  public Response<Aeronave> register(@RequestBody CrearAeronaveCommand aeronave)
-    throws HttpException {
-    try {
-      return _mediator.send(aeronave);
-    } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
-    }
+  public UUID register(@RequestBody CrearAeronaveCommand aeronave) throws Exception {
+    return (UUID) _mediator.send(aeronave).data;
   }
 
   @PutMapping("/{key}")
-  public Response<Aeronave> edit(
+  public AeronaveDto edit(
     @RequestBody Aeronave aeronave,
     @PathVariable EditarAeronaveCommand request
   ) throws HttpException {
     request.aeronave.matricula = aeronave.matricula;
     try {
-      return _mediator.send(request);
+      return (AeronaveDto) _mediator.send(request).data;
     } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
+      throw (HttpException) e.getCause();
     }
   }
 
+  @PutMapping("/AddAsiento/{key}")
+  public UUID addAsiento(
+    @RequestBody AsientoDto asientoDto,
+    @PathVariable AddAsientoAeronaveCommand request
+  ) throws Exception {
+    request.setAsiento(asientoDto);
+    return (UUID) _mediator.send(request).data;
+  }
+
   @DeleteMapping("/{key}")
-  public Response<Aeronave> delete(@PathVariable EliminarAeronaveCommand request)
-    throws HttpException {
+  public UUID delete(@PathVariable EliminarAeronaveCommand request) throws HttpException {
     try {
-      return _mediator.send(request);
+      return (UUID) _mediator.send(request).data;
     } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
+      throw (HttpException) e.getCause();
     }
   }
 }

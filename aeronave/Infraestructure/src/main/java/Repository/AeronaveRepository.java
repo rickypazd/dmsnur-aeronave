@@ -41,4 +41,9 @@ public class AeronaveRepository implements IAeronaveRepository {
     _aeronaves.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }
+
+  @Override
+  public Aeronave FindByMatricula(String matricula) throws Exception {
+    return _aeronaves.Single(obj -> obj.matricula.equals(matricula));
+  }
 }
