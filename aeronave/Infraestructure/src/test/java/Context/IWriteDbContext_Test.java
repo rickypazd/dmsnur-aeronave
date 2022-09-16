@@ -2,6 +2,7 @@ package Context;
 
 import Context.MongoDB.WriteDbContext;
 import fourteam.db.DbSet;
+import fourteam.db.Exception.DataBaseException;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,9 +11,9 @@ public class IWriteDbContext_Test {
 
   public static class Context extends IWriteDbContext {
 
-    public Context() {
+    public Context() throws DataBaseException {
       super(Context.class);
-      //TODO Auto-generated constructor stub
+      // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -83,7 +84,7 @@ public class IWriteDbContext_Test {
   }
 
   @Test
-  public void constructor_accept() {
+  public void constructor_accept() throws DataBaseException {
     IWriteDbContext context = new Context();
     Assert.assertNotNull(context);
   }

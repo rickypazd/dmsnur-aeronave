@@ -9,7 +9,6 @@ import Factories.IAeronaveFactory;
 import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
 import Repositories.IUnitOfWork;
-import fourteam.http.Exception.HttpException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +24,7 @@ public class CrearAeronaveHandler_Test {
   public void setUp() {}
 
   @Test
-  public void HandleCorrectly() throws HttpException {
+  public void HandleCorrectly() throws Exception {
     String matricula = "ASD";
     Aeronave a = new Aeronave(matricula);
     when(aeronaveFactory.Create(matricula)).thenReturn(a);

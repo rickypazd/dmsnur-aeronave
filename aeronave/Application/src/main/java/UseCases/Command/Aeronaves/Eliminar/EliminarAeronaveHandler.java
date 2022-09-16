@@ -25,7 +25,7 @@ public class EliminarAeronaveHandler implements RequestHandler<EliminarAeronaveC
   }
 
   @Override
-  public Aeronave handle(EliminarAeronaveCommand request) throws HttpException {
+  public Aeronave handle(EliminarAeronaveCommand request) throws Exception {
     Aeronave aeronave = _aeronaveRepository.FindByKey(request.aeronave.key);
     if (aeronave == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Aeronave no encontrada");

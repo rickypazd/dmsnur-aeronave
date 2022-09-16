@@ -16,28 +16,28 @@ public class MarcaRepository implements IMarcaRepository {
   }
 
   @Override
-  public Marca FindByKey(UUID key) {
+  public Marca FindByKey(UUID key) throws Exception {
     return _marcas.Single(obj -> obj.key.equals(key));
   }
 
   @Override
-  public void Create(Marca obj) {
+  public void Create(Marca obj) throws Exception {
     _marcas.Add(obj);
   }
 
   @Override
-  public List<Marca> GetAll() {
+  public List<Marca> GetAll() throws Exception {
     return _marcas.All();
   }
 
   @Override
-  public Marca Delete(Marca obj) {
+  public Marca Delete(Marca obj) throws Exception {
     _marcas.Delete((it -> it.key.equals(obj.key)));
     return obj;
   }
 
   @Override
-  public Marca Update(Marca obj) {
+  public Marca Update(Marca obj) throws Exception {
     _marcas.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }

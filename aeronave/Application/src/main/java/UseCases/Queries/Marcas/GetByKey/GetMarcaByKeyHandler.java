@@ -16,7 +16,7 @@ public class GetMarcaByKeyHandler implements RequestHandler<GetMarcaByKeyQuery, 
   }
 
   @Override
-  public MarcaDto handle(GetMarcaByKeyQuery request) throws HttpException {
+  public MarcaDto handle(GetMarcaByKeyQuery request) throws Exception {
     Marca marca = _marcaRepository.FindByKey(request.key);
     if (marca == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "marca no encontrada");

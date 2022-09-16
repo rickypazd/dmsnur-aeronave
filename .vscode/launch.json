@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch Pom",
+      "request": "launch",
+      "mainClass": "fourteam.pom.Pom",
+      "projectName": "fourteam"
+    },
+    {
       "name": "Java",
       "type": "java",
       "request": "launch",

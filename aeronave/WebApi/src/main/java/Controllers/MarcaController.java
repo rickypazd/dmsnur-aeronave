@@ -26,28 +26,48 @@ public class MarcaController {
 
   @GetMapping("/")
   public Response<List<Marca>> getAll() throws HttpException {
-    return _mediator.send(new GetAllMarcaQuery());
+    try {
+      return _mediator.send(new GetAllMarcaQuery());
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @GetMapping("/{key}")
   public Response<Marca> getByKey(@PathVariable GetMarcaByKeyQuery request) throws HttpException {
-    return _mediator.send(request);
+    try {
+      return _mediator.send(request);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @PostMapping("/registro")
   public Response<Marca> register(@RequestBody CrearMarcaCommand Marca) throws HttpException {
-    return _mediator.send(Marca);
+    try {
+      return _mediator.send(Marca);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @PutMapping("/{key}")
   public Response<Marca> edit(@RequestBody Marca Marca, @PathVariable EditarMarcaCommand request)
     throws HttpException {
     request.marca.nombre = Marca.nombre;
-    return _mediator.send(request);
+    try {
+      return _mediator.send(request);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @DeleteMapping("/{key}")
   public Response<Marca> delete(@PathVariable EliminarMarcaCommand request) throws HttpException {
-    return _mediator.send(request);
+    try {
+      return _mediator.send(request);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 }

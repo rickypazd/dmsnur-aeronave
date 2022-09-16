@@ -22,7 +22,7 @@ public class GetAeronaveByKeyHandler_Test {
   // IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   @Test
-  public void HandleCorrectly() {
+  public void HandleCorrectly() throws Exception {
     Aeronave a = new Aeronave("ASD");
     a.agregarAsiento(new Asiento(a.key, 1, "A1"));
 
@@ -38,7 +38,7 @@ public class GetAeronaveByKeyHandler_Test {
   }
 
   @Test
-  public void HandleFail() {
+  public void HandleFail() throws Exception {
     Aeronave a = new Aeronave("ASD");
     when(aeronaveRepository.FindByKey(any())).thenReturn(null);
     GetAeronaveByKeyHandler handler = new GetAeronaveByKeyHandler(aeronaveRepository);

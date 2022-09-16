@@ -22,7 +22,7 @@ public class UnitOfWork_Test {
   }
 
   @Test
-  public void commit_accept() {
+  public void commit_accept() throws Exception {
     UnitOfWork unitOfWork = new UnitOfWork(_context, _mediator);
     List<Object> list = new ArrayList<Object>();
     list.add(new DomainEvent() {});
@@ -36,7 +36,7 @@ public class UnitOfWork_Test {
   }
 
   @Test
-  public void commit_denied() {
+  public void commit_denied() throws Exception {
     UnitOfWork unitOfWork = new UnitOfWork(_context, _mediator);
     try {
       unitOfWork.commit();

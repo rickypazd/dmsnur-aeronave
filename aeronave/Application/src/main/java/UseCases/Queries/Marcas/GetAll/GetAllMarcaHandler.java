@@ -14,7 +14,7 @@ public class GetAllMarcaHandler implements RequestHandler<GetAllMarcaQuery, List
   }
 
   @Override
-  public List<Marca> handle(GetAllMarcaQuery request) {
+  public List<Marca> handle(GetAllMarcaQuery request) throws Exception {
     return _marcaRepository.GetAll();
   }
 }

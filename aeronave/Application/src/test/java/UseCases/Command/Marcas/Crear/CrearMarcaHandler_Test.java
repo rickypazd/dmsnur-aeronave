@@ -30,7 +30,7 @@ public class CrearMarcaHandler_Test {
   public void setUp() {}
 
   @Test
-  public void HandleCorrectly() throws HttpException {
+  public void HandleCorrectly() throws Exception {
     String nombre = "Marca test1";
 
     Marca entity = new Marca(nombre);
@@ -50,7 +50,7 @@ public class CrearMarcaHandler_Test {
   }
 
   @Test
-  public void HandleFailed() throws HttpException {
+  public void HandleFailed() throws Exception {
     when(marcaRepository.FindByKey(any())).thenReturn(null);
     CrearMarcaHandler handler = new CrearMarcaHandler(marcaFactory, marcaRepository, _unitOfWork);
     MarcaDto dto = new MarcaDto();

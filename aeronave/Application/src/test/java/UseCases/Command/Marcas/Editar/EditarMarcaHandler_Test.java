@@ -31,7 +31,7 @@ public class EditarMarcaHandler_Test {
   public void setUp() {}
 
   @Test
-  public void HandleCorrectly() throws HttpException {
+  public void HandleCorrectly() throws Exception {
     UUID key = UUID.randomUUID();
     String nombre = "Marca test1";
 
@@ -54,7 +54,7 @@ public class EditarMarcaHandler_Test {
   }
 
   @Test
-  public void HandleFailed() throws HttpException {
+  public void HandleFailed() throws Exception {
     when(marcaRepository.FindByKey(any())).thenReturn(null);
     EditarMarcaHandler handler = new EditarMarcaHandler(marcaFactory, marcaRepository, _unitOfWork);
     MarcaDto dto = new MarcaDto();

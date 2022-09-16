@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 import Context.IWriteDbContext;
 import Model.Aeronaves.Aeronave;
 import fourteam.db.DbSet;
+import fourteam.db.Exception.DataBaseException;
 import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Before;
@@ -31,7 +32,7 @@ public class AeronaveRepository_Test {
   }
 
   @Test
-  public void FindByKey_accept() {
+  public void FindByKey_accept() throws Exception {
     // Mockito.verify(_aeronaves).Single(obj -> obj.key.equals(UUID.randomUUID()));
     Aeronave a = new Aeronave();
     when(_aeronaves.Single(any())).thenReturn(a);
@@ -42,28 +43,28 @@ public class AeronaveRepository_Test {
   }
 
   @Test
-  public void GetAll_accept() {
+  public void GetAll_accept() throws Exception {
     AeronaveRepository repository = new AeronaveRepository(_database);
     repository.GetAll();
     Assert.assertNotNull(repository);
   }
 
   @Test
-  public void Create_accept() {
+  public void Create_accept() throws Exception {
     AeronaveRepository repository = new AeronaveRepository(_database);
     repository.Create(new Aeronave());
     Assert.assertNotNull(repository);
   }
 
   @Test
-  public void Delete_accept() {
+  public void Delete_accept() throws Exception {
     AeronaveRepository repository = new AeronaveRepository(_database);
     repository.Delete(new Aeronave());
     Assert.assertNotNull(repository);
   }
 
   @Test
-  public void Update_accept() {
+  public void Update_accept() throws Exception {
     AeronaveRepository repository = new AeronaveRepository(_database);
     repository.Update(new Aeronave());
     Assert.assertNotNull(repository);

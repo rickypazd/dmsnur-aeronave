@@ -15,12 +15,12 @@ public class AsientoRepository implements IAsientoRepository {
   }
 
   @Override
-  public Asiento FindByKey(UUID key) {
+  public Asiento FindByKey(UUID key) throws Exception {
     return null;
   }
 
   @Override
-  public void Create(Asiento obj) {
+  public void Create(Asiento obj) throws Exception {
     _asientos.Add(obj);
   }
 }

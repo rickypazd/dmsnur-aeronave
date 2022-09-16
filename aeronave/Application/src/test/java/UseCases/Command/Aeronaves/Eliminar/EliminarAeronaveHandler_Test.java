@@ -27,7 +27,7 @@ public class EliminarAeronaveHandler_Test {
   public void setUp() {}
 
   @Test
-  public void HandleCorrectly() throws HttpException {
+  public void HandleCorrectly() throws Exception {
     UUID key = UUID.randomUUID();
     String matricula = "ASD";
     Aeronave a = new Aeronave(matricula);
@@ -51,7 +51,7 @@ public class EliminarAeronaveHandler_Test {
   }
 
   @Test
-  public void HandleFailed() throws HttpException {
+  public void HandleFailed() throws Exception {
     when(aeronaveRepository.FindByKey(any())).thenReturn(null);
 
     EliminarAeronaveHandler handler = new EliminarAeronaveHandler(

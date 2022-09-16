@@ -20,7 +20,7 @@ public class GetAllAeronaveHandler_Test {
   // IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   @Test
-  public void HandleCorrectly() {
+  public void HandleCorrectly() throws Exception {
     Aeronave a = new Aeronave("ASD");
     List<Aeronave> list = new ArrayList<Aeronave>();
     list.add(a);

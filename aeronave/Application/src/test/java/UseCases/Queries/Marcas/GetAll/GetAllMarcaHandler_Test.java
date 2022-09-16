@@ -17,7 +17,7 @@ public class GetAllMarcaHandler_Test {
   IMarcaRepository marcaRepository = Mockito.mock(IMarcaRepository.class);
 
   @Test
-  public void HandleCorrectly() {
+  public void HandleCorrectly() throws Exception {
     Marca a = new Marca("Nombre marca");
     List<Marca> list = new ArrayList<Marca>();
     list.add(a);

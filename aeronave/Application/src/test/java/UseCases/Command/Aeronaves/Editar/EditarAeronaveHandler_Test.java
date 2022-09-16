@@ -27,7 +27,7 @@ public class EditarAeronaveHandler_Test {
   public void setUp() {}
 
   @Test
-  public void HandleCorrectly() throws HttpException {
+  public void HandleCorrectly() throws Exception {
     String matricula = "ASD";
     Aeronave a = new Aeronave(matricula);
     when(aeronaveRepository.FindByKey(any())).thenReturn(a);
@@ -49,7 +49,7 @@ public class EditarAeronaveHandler_Test {
   }
 
   @Test
-  public void HandleFailed() throws HttpException {
+  public void HandleFailed() throws Exception {
     when(aeronaveRepository.FindByKey(any())).thenReturn(null);
 
     EditarAeronaveHandler handler = new EditarAeronaveHandler(

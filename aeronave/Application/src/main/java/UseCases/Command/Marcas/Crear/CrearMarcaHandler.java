@@ -24,7 +24,7 @@ public class CrearMarcaHandler implements RequestHandler<CrearMarcaCommand, Marc
   }
 
   @Override
-  public Marca handle(CrearMarcaCommand request) throws HttpException {
+  public Marca handle(CrearMarcaCommand request) throws Exception {
     Marca marca = _marcaFactory.Create(request.nombre);
     _marcaRepository.Create(marca);
     _unitOfWork.commit();

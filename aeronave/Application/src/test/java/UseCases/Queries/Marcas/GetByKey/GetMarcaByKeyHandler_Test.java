@@ -15,7 +15,7 @@ public class GetMarcaByKeyHandler_Test {
   IMarcaRepository marcaRepository = Mockito.mock(IMarcaRepository.class);
 
   @Test
-  public void HandleCorrectly() {
+  public void HandleCorrectly() throws Exception {
     Marca a = new Marca("Nombre marca");
     when(marcaRepository.FindByKey(any())).thenReturn(a);
     GetMarcaByKeyHandler handler = new GetMarcaByKeyHandler(marcaRepository);
@@ -29,7 +29,7 @@ public class GetMarcaByKeyHandler_Test {
   }
 
   @Test
-  public void HandleFail() {
+  public void HandleFail() throws Exception {
     Marca a = new Marca("Nombre marca");
     when(marcaRepository.FindByKey(any())).thenReturn(null);
     GetMarcaByKeyHandler handler = new GetMarcaByKeyHandler(marcaRepository);

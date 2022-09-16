@@ -25,7 +25,7 @@ public class EditarAeronaveHandler implements RequestHandler<EditarAeronaveComma
   }
 
   @Override
-  public Aeronave handle(EditarAeronaveCommand request) throws HttpException {
+  public Aeronave handle(EditarAeronaveCommand request) throws Exception {
     Aeronave aeronave = _aeronaveRepository.FindByKey(request.aeronave.key);
     if (aeronave == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Aeronave no encontrada");

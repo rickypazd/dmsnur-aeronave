@@ -32,7 +32,7 @@ public class MarcaRepository_Test {
   }
 
   @Test
-  public void FindByKey_accept() {
+  public void FindByKey_accept() throws Exception {
     // Mockito.verify(_marcas).Single(obj -> obj.key.equals(UUID.randomUUID()));
     Marca a = new Marca("Nombre");
 
@@ -49,28 +49,28 @@ public class MarcaRepository_Test {
   }
 
   @Test
-  public void GetAll_accept() {
+  public void GetAll_accept() throws Exception {
     MarcaRepository repository = new MarcaRepository(_database);
     repository.GetAll();
     Assert.assertNotNull(repository);
   }
 
   @Test
-  public void Create_accept() {
+  public void Create_accept() throws Exception {
     MarcaRepository repository = new MarcaRepository(_database);
     repository.Create(new Marca("Nombre"));
     Assert.assertNotNull(repository);
   }
 
   @Test
-  public void Delete_accept() {
+  public void Delete_accept() throws Exception {
     MarcaRepository repository = new MarcaRepository(_database);
     repository.Delete(new Marca("Nombre"));
     Assert.assertNotNull(repository);
   }
 
   @Test
-  public void Update_accept() {
+  public void Update_accept() throws Exception {
     MarcaRepository repository = new MarcaRepository(_database);
     repository.Update(new Marca("Nombre"));
     Assert.assertNotNull(repository);

@@ -31,20 +31,34 @@ public class AeronaveController {
   }
 
   @GetMapping("/")
-  public Response<List<Aeronave>> getAll() throws HttpException {
-    return _mediator.send(new GetAllAeronaveQuery());
+  public List<Aeronave> getAll() throws HttpException {
+    try {
+      Response<List<Aeronave>> lista = _mediator.send(new GetAllAeronaveQuery());
+      return lista.data;
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new HttpException(404, "Error " + e.getMessage());
+    }
   }
 
   @GetMapping("/{key}")
   public Response<AeronaveDto> getByKey(@PathVariable GetAeronaveByKeyQuery request)
     throws HttpException {
-    return _mediator.send(request);
+    try {
+      return _mediator.send(request);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @PostMapping("/registro")
   public Response<Aeronave> register(@RequestBody CrearAeronaveCommand aeronave)
     throws HttpException {
-    return _mediator.send(aeronave);
+    try {
+      return _mediator.send(aeronave);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @PutMapping("/{key}")
@@ -53,12 +67,20 @@ public class AeronaveController {
     @PathVariable EditarAeronaveCommand request
   ) throws HttpException {
     request.aeronave.matricula = aeronave.matricula;
-    return _mediator.send(request);
+    try {
+      return _mediator.send(request);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 
   @DeleteMapping("/{key}")
   public Response<Aeronave> delete(@PathVariable EliminarAeronaveCommand request)
     throws HttpException {
-    return _mediator.send(request);
+    try {
+      return _mediator.send(request);
+    } catch (Exception e) {
+      throw new HttpException(404, e.getMessage());
+    }
   }
 }

@@ -28,7 +28,7 @@ public class EditarMarcaHandler implements RequestHandler<EditarMarcaCommand, Ma
   }
 
   @Override
-  public Marca handle(EditarMarcaCommand request) throws HttpException {
+  public Marca handle(EditarMarcaCommand request) throws Exception {
     Marca marca = _marcaRepository.FindByKey(request.marca.key);
     if (marca == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "marca no encontrada");

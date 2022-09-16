@@ -24,7 +24,7 @@ public class CrearAeronaveHandler implements RequestHandler<CrearAeronaveCommand
   }
 
   @Override
-  public Aeronave handle(CrearAeronaveCommand request) throws HttpException {
+  public Aeronave handle(CrearAeronaveCommand request) throws Exception {
     Aeronave aeronave = _aeronaveFactory.Create(request.matricula);
     aeronave.eventCreado();
     _aeronaveRepository.Create(aeronave);

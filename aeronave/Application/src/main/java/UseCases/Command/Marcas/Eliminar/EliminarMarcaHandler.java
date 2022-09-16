@@ -28,7 +28,7 @@ public class EliminarMarcaHandler implements RequestHandler<EliminarMarcaCommand
   }
 
   @Override
-  public Marca handle(EliminarMarcaCommand request) throws HttpException {
+  public Marca handle(EliminarMarcaCommand request) throws Exception {
     Marca marca = _marcaRepository.FindByKey(request.marca.key);
     if (marca == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "marca no encontrada");
