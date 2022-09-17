@@ -8,6 +8,7 @@ import Event.AeronaveCreado;
 import Factories.IAeronaveFactory;
 import Model.Aeronaves.Aeronave;
 import Repositories.IAeronaveRepository;
+import Repositories.IMarcaRepository;
 import Repositories.IUnitOfWork;
 import java.util.UUID;
 import org.junit.Assert;
@@ -19,6 +20,7 @@ public class CrearAeronaveHandler_Test {
 
   IAeronaveFactory aeronaveFactory = Mockito.mock(IAeronaveFactory.class);
   IAeronaveRepository aeronaveRepository = Mockito.mock(IAeronaveRepository.class);
+  IMarcaRepository marcaRepository = Mockito.mock(IMarcaRepository.class);
   IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   @Before
@@ -27,12 +29,13 @@ public class CrearAeronaveHandler_Test {
   @Test
   public void HandleCorrectly() throws Exception {
     String matricula = "ASD";
-    Aeronave a = new Aeronave(matricula);
-    when(aeronaveFactory.Create(matricula)).thenReturn(a);
+    Aeronave a = new Aeronave(matricula, "");
+    when(aeronaveFactory.Create(matricula, "")).thenReturn(a);
 
     CrearAeronaveHandler handler = new CrearAeronaveHandler(
       aeronaveFactory,
       aeronaveRepository,
+      marcaRepository,
       _unitOfWork
     );
 

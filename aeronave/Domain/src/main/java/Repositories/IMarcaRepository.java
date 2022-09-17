@@ -11,4 +11,6 @@ public interface IMarcaRepository extends IRepository<Marca, UUID> {
   public Marca Delete(Marca obj) throws Exception;
 
   public Marca Update(Marca obj) throws Exception;
+
+  public Marca FindByKeyModelo(String keyModelo) throws Exception;
 }

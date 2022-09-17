@@ -7,6 +7,7 @@ import UseCases.Command.Aeronaves.Crear.CrearAeronaveHandler;
 import UseCases.Command.Aeronaves.Editar.EditarAeronaveHandler;
 import UseCases.Command.Aeronaves.Eliminar.EliminarAeronaveHandler;
 import UseCases.Command.Asientos.UpdateAsientosWhenAeronaveCreado.UpdateAsientosWhenAeronaveCreadoHandler;
+import UseCases.Command.Marcas.AddModelo.AddModeloMarcaHandler;
 import UseCases.Command.Marcas.Crear.CrearMarcaHandler;
 import UseCases.Command.Marcas.Editar.EditarMarcaHandler;
 import UseCases.Command.Marcas.Eliminar.EliminarMarcaHandler;
@@ -36,6 +37,7 @@ public class Application {
     IMediator.registerHandler(CrearMarcaHandler.class);
     IMediator.registerHandler(EliminarMarcaHandler.class);
     IMediator.registerHandler(EditarMarcaHandler.class);
+    IMediator.registerHandler(AddModeloMarcaHandler.class);
 
     IMediator.registerHandler(UpdateAsientosWhenAeronaveCreadoHandler.class);
     IMediator.registerHandler(PublishIntegrationEventWhenAeronaveCreadoHandler.class);

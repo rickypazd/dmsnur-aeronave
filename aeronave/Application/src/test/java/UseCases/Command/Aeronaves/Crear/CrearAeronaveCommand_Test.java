@@ -12,7 +12,7 @@ public class CrearAeronaveCommand_Test {
     AeronaveDto aeronave = new AeronaveDto();
     aeronave.setMatricula(matricula);
     CrearAeronaveCommand command = new CrearAeronaveCommand(aeronave);
-    Assert.assertEquals(matricula, command.matricula);
+    Assert.assertEquals(matricula, command.data.matricula);
   }
 
   @Test

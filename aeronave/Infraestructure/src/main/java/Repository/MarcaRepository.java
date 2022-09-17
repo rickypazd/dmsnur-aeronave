@@ -41,4 +41,16 @@ public class MarcaRepository implements IMarcaRepository {
     _marcas.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }
+
+  @Override
+  public Marca FindByKeyModelo(String keyModelo) throws Exception {
+    return _marcas.Single(obj ->
+      obj.modelos
+        .stream()
+        .filter(model -> model.key.toString().equals(keyModelo))
+        .findAny()
+        .orElse(null) !=
+      null
+    );
+  }
 }

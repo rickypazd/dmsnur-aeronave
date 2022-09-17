@@ -7,7 +7,7 @@ public class AeronaveFactory implements IAeronaveFactory {
   public AeronaveFactory() {}
 
   @Override
-  public Aeronave Create(String matricula) {
-    return new Aeronave(matricula);
+  public Aeronave Create(String matricula, String keyModelo) {
+    return new Aeronave(matricula, keyModelo);
   }
 }

@@ -29,7 +29,7 @@ public class EditarAeronaveHandler_Test {
   @Test
   public void HandleCorrectly() throws Exception {
     String matricula = "ASD";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     when(aeronaveRepository.FindByKey(any())).thenReturn(a);
 
     EditarAeronaveHandler handler = new EditarAeronaveHandler(

@@ -19,7 +19,7 @@ public class AeronaveCreado_Test {
 
   @Test
   public void ConstructorGetSet_accept() {
-    Aeronave a = new Aeronave("MAD");
+    Aeronave a = new Aeronave("MAD", "");
     AeronaveCreado c = new AeronaveCreado();
     c.setKeyAeronave(a.key);
     c.setMatricula(a.matricula);

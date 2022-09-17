@@ -48,7 +48,7 @@ public class EditarMarcaHandler_Test {
 
     EditarMarcaCommand command = new EditarMarcaCommand(dto.key);
     command.marca.nombre = nombre;
-    Marca resp = handler.handle(command);
+    MarcaDto resp = handler.handle(command);
 
     Assert.assertEquals(nombre, resp.nombre);
   }

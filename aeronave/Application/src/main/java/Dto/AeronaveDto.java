@@ -8,6 +8,7 @@ public class AeronaveDto {
 
   public UUID key;
   public String matricula;
+  public String keyModelo;
   public List<AsientoDto> asientos;
 
   public AeronaveDto() {
@@ -36,5 +37,13 @@ public class AeronaveDto {
 
   public List<AsientoDto> getAsientos() {
     return asientos;
+  }
+
+  public String getKeyModelo() {
+    return keyModelo;
+  }
+
+  public void setKeyModelo(String keyModelo) {
+    this.keyModelo = keyModelo;
   }
 }

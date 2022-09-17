@@ -13,21 +13,21 @@ public class Aeronave_Test {
   @Test
   public void constructor_accept() {
     String matricula = "MAD";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     Assert.assertEquals(a.matricula, matricula);
   }
 
   @Test
   public void constructor_denied() {
     String matricula = "";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     Assert.assertEquals(a.matricula, null);
   }
 
   @Test
   public void addDomainEvent_accept() {
     String matricula = "MAD";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     a.eventCreado();
     Assert.assertEquals(a.domainEvents.size(), 1);
   }
@@ -35,7 +35,7 @@ public class Aeronave_Test {
   @Test
   public void addAsiento_accept() {
     String matricula = "MAD";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     a.agregarAsiento(new Asiento(a.key, 1, "A1"));
     Assert.assertEquals(a.asientos.size(), 1);
   }
@@ -43,7 +43,7 @@ public class Aeronave_Test {
   @Test
   public void addAsiento_denied() {
     String matricula = "MAD";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     Asiento as = new Asiento(a.key, 1, "A1");
     a.agregarAsiento(as);
     Asiento as2 = new Asiento(a.key, 1, "A1");

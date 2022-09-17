@@ -1,7 +1,10 @@
 package Controllers;
 
+import Dto.MarcaDto;
+import Dto.ModeloDto;
 import Model.Marcas.*;
 import Model.Marcas.Marca;
+import UseCases.Command.Marcas.AddModelo.AddModeloMarcaCommand;
 import UseCases.Command.Marcas.Crear.CrearMarcaCommand;
 import UseCases.Command.Marcas.Editar.EditarMarcaCommand;
 import UseCases.Command.Marcas.Eliminar.EliminarMarcaCommand;
@@ -13,6 +16,7 @@ import fourteam.mediator.Mediator;
 import fourteam.mediator.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/marca")
@@ -25,49 +29,36 @@ public class MarcaController {
   }
 
   @GetMapping("/")
-  public Response<List<Marca>> getAll() throws HttpException {
-    try {
-      return _mediator.send(new GetAllMarcaQuery());
-    } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
-    }
+  public List<MarcaDto> getAll() throws Exception {
+    return (List<MarcaDto>) _mediator.send(new GetAllMarcaQuery()).data;
   }
 
   @GetMapping("/{key}")
-  public Response<Marca> getByKey(@PathVariable GetMarcaByKeyQuery request) throws HttpException {
-    try {
-      return _mediator.send(request);
-    } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
-    }
+  public MarcaDto getByKey(@PathVariable GetMarcaByKeyQuery request) throws Exception {
+    return (MarcaDto) _mediator.send(request).data;
   }
 
   @PostMapping("/registro")
-  public Response<Marca> register(@RequestBody CrearMarcaCommand Marca) throws HttpException {
-    try {
-      return _mediator.send(Marca);
-    } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
-    }
+  public UUID register(@RequestBody CrearMarcaCommand Marca) throws Exception {
+    return (UUID) _mediator.send(Marca).data;
   }
 
   @PutMapping("/{key}")
-  public Response<Marca> edit(@RequestBody Marca Marca, @PathVariable EditarMarcaCommand request)
-    throws HttpException {
+  public MarcaDto edit(@RequestBody MarcaDto Marca, @PathVariable EditarMarcaCommand request)
+    throws Exception {
     request.marca.nombre = Marca.nombre;
-    try {
-      return _mediator.send(request);
-    } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
-    }
+    return (MarcaDto) _mediator.send(request).data;
+  }
+
+  @PutMapping("/AddModelo/{key}")
+  public UUID addModelo(@RequestBody ModeloDto dto, @PathVariable AddModeloMarcaCommand request)
+    throws Exception {
+    request.setModelo(dto);
+    return (UUID) _mediator.send(request).data;
   }
 
   @DeleteMapping("/{key}")
-  public Response<Marca> delete(@PathVariable EliminarMarcaCommand request) throws HttpException {
-    try {
-      return _mediator.send(request);
-    } catch (Exception e) {
-      throw new HttpException(404, e.getMessage());
-    }
+  public UUID delete(@PathVariable EliminarMarcaCommand request) throws Exception {
+    return (UUID) _mediator.send(request).data;
   }
 }

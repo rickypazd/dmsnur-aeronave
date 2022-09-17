@@ -52,9 +52,9 @@ public class EliminarMarcaHandler_Test {
 
     EliminarMarcaCommand command = new EliminarMarcaCommand(dto.key);
     command.marca.nombre = nombre;
-    Marca resp = handler.handle(command);
+    UUID resp = handler.handle(command);
 
-    Assert.assertEquals(nombre, resp.nombre);
+    Assert.assertEquals(dto.key, resp);
   }
 
   @Test

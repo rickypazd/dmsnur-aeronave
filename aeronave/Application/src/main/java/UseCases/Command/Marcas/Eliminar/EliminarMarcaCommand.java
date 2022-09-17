@@ -4,12 +4,12 @@ import Dto.MarcaDto;
 import fourteam.mediator.Request;
 import java.util.UUID;
 
-public class EliminarMarcaCommand implements Request<MarcaDto> {
+public class EliminarMarcaCommand implements Request<UUID> {
 
   MarcaDto marca;
 
   public EliminarMarcaCommand(UUID key) {
-    this.marca = new MarcaDto();
+    marca = new MarcaDto();
     this.marca.key = key;
   }
 }

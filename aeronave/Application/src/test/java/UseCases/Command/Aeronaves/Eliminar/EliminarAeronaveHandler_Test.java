@@ -30,7 +30,7 @@ public class EliminarAeronaveHandler_Test {
   public void HandleCorrectly() throws Exception {
     UUID key = UUID.randomUUID();
     String matricula = "ASD";
-    Aeronave a = new Aeronave(matricula);
+    Aeronave a = new Aeronave(matricula, "");
     a.key = key;
 
     when(aeronaveRepository.FindByKey(any())).thenReturn(a);

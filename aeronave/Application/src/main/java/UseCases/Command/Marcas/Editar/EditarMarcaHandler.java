@@ -1,5 +1,6 @@
 package UseCases.Command.Marcas.Editar;
 
+import Dto.MarcaDto;
 import Factories.IAeronaveFactory;
 import Factories.IMarcaFactory;
 import Model.Aeronaves.Aeronave;
@@ -11,7 +12,7 @@ import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
 
-public class EditarMarcaHandler implements RequestHandler<EditarMarcaCommand, Marca> {
+public class EditarMarcaHandler implements RequestHandler<EditarMarcaCommand, MarcaDto> {
 
   private IMarcaFactory _marcaFactory;
   private IMarcaRepository _marcaRepository;
@@ -28,13 +29,14 @@ public class EditarMarcaHandler implements RequestHandler<EditarMarcaCommand, Ma
   }
 
   @Override
-  public Marca handle(EditarMarcaCommand request) throws Exception {
+  public MarcaDto handle(EditarMarcaCommand request) throws Exception {
     Marca marca = _marcaRepository.FindByKey(request.marca.key);
     if (marca == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "marca no encontrada");
     }
     marca.nombre = request.marca.nombre;
     _marcaRepository.Update(marca);
-    return marca;
+
+    return new MarcaDto(marca.key, marca.nombre);
   }
 }

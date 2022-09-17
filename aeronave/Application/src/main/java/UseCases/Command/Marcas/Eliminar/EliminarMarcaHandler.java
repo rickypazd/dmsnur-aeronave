@@ -10,8 +10,9 @@ import Repositories.IUnitOfWork;
 import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
+import java.util.UUID;
 
-public class EliminarMarcaHandler implements RequestHandler<EliminarMarcaCommand, Marca> {
+public class EliminarMarcaHandler implements RequestHandler<EliminarMarcaCommand, UUID> {
 
   private IMarcaFactory _marcaFactory;
   private IMarcaRepository _marcaRepository;
@@ -28,12 +29,14 @@ public class EliminarMarcaHandler implements RequestHandler<EliminarMarcaCommand
   }
 
   @Override
-  public Marca handle(EliminarMarcaCommand request) throws Exception {
+  public UUID handle(EliminarMarcaCommand request) throws Exception {
     Marca marca = _marcaRepository.FindByKey(request.marca.key);
     if (marca == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "marca no encontrada");
     }
 
-    return _marcaRepository.Delete(marca);
+    _marcaRepository.Delete(marca);
+    _unitOfWork.commit();
+    return marca.key;
   }
 }

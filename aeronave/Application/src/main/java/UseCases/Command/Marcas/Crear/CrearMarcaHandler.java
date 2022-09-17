@@ -6,8 +6,9 @@ import Repositories.IMarcaRepository;
 import Repositories.IUnitOfWork;
 import fourteam.http.Exception.HttpException;
 import fourteam.mediator.RequestHandler;
+import java.util.UUID;
 
-public class CrearMarcaHandler implements RequestHandler<CrearMarcaCommand, Marca> {
+public class CrearMarcaHandler implements RequestHandler<CrearMarcaCommand, UUID> {
 
   private IMarcaFactory _marcaFactory;
   private IMarcaRepository _marcaRepository;
@@ -24,10 +25,10 @@ public class CrearMarcaHandler implements RequestHandler<CrearMarcaCommand, Marc
   }
 
   @Override
-  public Marca handle(CrearMarcaCommand request) throws Exception {
+  public UUID handle(CrearMarcaCommand request) throws Exception {
     Marca marca = _marcaFactory.Create(request.nombre);
     _marcaRepository.Create(marca);
     _unitOfWork.commit();
-    return marca;
+    return marca.key;
   }
 }

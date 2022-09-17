@@ -12,6 +12,6 @@ public class AeronaveFactory_Test {
 
   @Test
   public void create_accept() {
-    Assert.assertNotNull(new AeronaveFactory().Create("ASD"));
+    Assert.assertNotNull(new AeronaveFactory().Create("ASD", ""));
   }
 }

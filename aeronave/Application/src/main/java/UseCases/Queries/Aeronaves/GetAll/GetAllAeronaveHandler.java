@@ -27,6 +27,7 @@ public class GetAllAeronaveHandler
       AeronaveDto aeronave_dto = new AeronaveDto();
       aeronave_dto.setKey(aeronave.getKey());
       aeronave_dto.setMatricula(aeronave.matricula);
+      aeronave_dto.setKeyModelo(aeronave.keyModelo);
       resp.add(aeronave_dto);
       List<AsientoDto> asientosDto = new ArrayList<>();
 

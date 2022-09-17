@@ -21,7 +21,7 @@ public class GetAllAeronaveHandler_Test {
 
   @Test
   public void HandleCorrectly() throws Exception {
-    Aeronave a = new Aeronave("ASD");
+    Aeronave a = new Aeronave("ASD", "");
     List<Aeronave> list = new ArrayList<Aeronave>();
     list.add(a);
     when(aeronaveRepository.GetAll()).thenReturn(list);

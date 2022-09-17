@@ -7,9 +7,9 @@ import java.util.List;
 
 public class CrearAeronaveCommand implements Request<AeronaveDto> {
 
-  public CrearAeronaveCommand(AeronaveDto ero) {
-    this.matricula = ero.matricula;
-  }
+  public AeronaveDto data;
 
-  public String matricula;
+  public CrearAeronaveCommand(AeronaveDto ero) {
+    this.data = ero;
+  }
 }

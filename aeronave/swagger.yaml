@@ -47,6 +47,22 @@ paths:
       responses:
         "200": {description: Response 200}
       tags: [/aeronave]
+  /marca/AddModelo/{key}:
+    put:
+      summary: /marca addModelo
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /marca_addModelo
+      responses:
+        "200": {description: Response 200}
+      parameters:
+        - schema: {type: string}
+          in: path
+          name: key
+          required: true
+      tags: [/marca]
   /marca/:
     get:
       summary: /marca getAll
