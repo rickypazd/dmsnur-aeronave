@@ -1,3 +1,4 @@
+import core.IntegrationEvent;
 import fourteam.console.console;
 
 public class SharedKernel {
@@ -15,7 +16,9 @@ public class SharedKernel {
     core.ValueObject.class,
     // IntegrationEvents
     IntegrationEvents.AeronaveCreado.class,
+    IntegrationEvents.CheckInCreado.class,
     IntegrationEvents.TripulacionCreado.class,
+    IntegrationEvents.VentaCreado.class,
     IntegrationEvents.VueloCreado.class,
     // rule
     rule.NotNullRule.class,

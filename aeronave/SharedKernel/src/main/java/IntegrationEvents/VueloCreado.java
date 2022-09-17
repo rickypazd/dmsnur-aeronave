@@ -1,62 +1,30 @@
 package IntegrationEvents;
 
 import core.IntegrationEvent;
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class VueloCreado extends IntegrationEvent {
 
-  private UUID key;
+  private String keyVuelo;
   private String nroVuelo;
-  private String keyAeronave;
-  private String keyAeropuertoOrigen;
-  private String keyAeropuertoDestino;
+  private String ciudadOrigen;
+  private String ciudadDestino;
+  private List<Asiento> asiento;
   private Date fechaSalida;
   private Date fechaArribe;
 
-  // public List<TripulanteDto> listaTripulante;
-  public UUID getKey() {
-    return key;
-  }
-
-  public void setKey(UUID key) {
-    this.key = key;
-  }
-
   public String getNroVuelo() {
-    return nroVuelo;
+    return this.nroVuelo;
   }
 
   public void setNroVuelo(String nroVuelo) {
     this.nroVuelo = nroVuelo;
   }
 
-  public String getKeyAeronave() {
-    return keyAeronave;
-  }
-
-  public void setKeyAeronave(String keyAeronave) {
-    this.keyAeronave = keyAeronave;
-  }
-
-  public String getKeyAeropuertoOrigen() {
-    return keyAeropuertoOrigen;
-  }
-
-  public void setKeyAeropuertoOrigen(String keyAeropuertoOrigen) {
-    this.keyAeropuertoOrigen = keyAeropuertoOrigen;
-  }
-
-  public String getKeyAeropuertoDestino() {
-    return keyAeropuertoDestino;
-  }
-
-  public void setKeyAeropuertoDestino(String keyAeropuertoDestino) {
-    this.keyAeropuertoDestino = keyAeropuertoDestino;
-  }
-
   public Date getFechaSalida() {
-    return fechaSalida;
+    return this.fechaSalida;
   }
 
   public void setFechaSalida(Date fechaSalida) {
@@ -64,10 +32,73 @@ public class VueloCreado extends IntegrationEvent {
   }
 
   public Date getFechaArribe() {
-    return fechaArribe;
+    return this.fechaArribe;
   }
 
   public void setFechaArribe(Date fechaArribe) {
     this.fechaArribe = fechaArribe;
+  }
+
+  public String getKeyVuelo() {
+    return this.keyVuelo;
+  }
+
+  public void setKeyVuelo(String keyVuelo) {
+    this.keyVuelo = keyVuelo;
+  }
+
+  public String getCiudadOrigen() {
+    return this.ciudadOrigen;
+  }
+
+  public void setCiudadOrigen(String ciudadOrigen) {
+    this.ciudadOrigen = ciudadOrigen;
+  }
+
+  public String getCiudadDestino() {
+    return this.ciudadDestino;
+  }
+
+  public void setCiudadDestino(String ciudadDestino) {
+    this.ciudadDestino = ciudadDestino;
+  }
+
+  public List<Asiento> getAsiento() {
+    return this.asiento;
+  }
+
+  public void setAsiento(List<Asiento> asiento) {
+    this.asiento = asiento;
+  }
+
+  public class Asiento {
+
+    private UUID key;
+    private String numero;
+    private int disponibilidad;
+
+    public void setKey(UUID key) {
+      this.key = key;
+    }
+
+    public UUID getKey() {
+      return key;
+    }
+
+    public void setNumero(String numero) {
+      this.numero = numero;
+    }
+
+    public String getNumero() {
+      return numero;
+    }
+
+    public void setDisponibilidad(int disponibilidad) {
+      this.disponibilidad = disponibilidad;
+    }
+
+    public int getDisponibilidad() {
+      return disponibilidad;
+    }
   }
 }
