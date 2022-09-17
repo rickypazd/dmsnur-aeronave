@@ -1,5 +1,5 @@
 servers:
-  - {url: "http://localhost/api/"}
+  - {url: "http://localhost:8080/api/"}
 openapi: 3.0.0
 paths:
   /marca/{key}:

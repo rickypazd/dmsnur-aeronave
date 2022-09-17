@@ -9,7 +9,7 @@ services:
       - 80:80
       - 27017:27017
     volumes:
-      - ./db/:/data/db
+      - ./mongoDB/:/data/db
   server:
     image: rickypazd/aeronave-java
     build: ./aeronave

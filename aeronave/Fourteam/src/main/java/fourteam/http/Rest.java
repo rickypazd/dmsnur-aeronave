@@ -19,6 +19,7 @@ import org.yaml.snakeyaml.Yaml;
 public abstract class Rest {
 
   private static HashMap<String, Controller> controllers = new HashMap<String, Controller>();
+  public static int PORT = 80;
 
   public static void addController(Class RestController) {
     try {
@@ -33,10 +34,11 @@ public abstract class Rest {
   }
 
   public static void start() {
-    start(80);
+    start(PORT);
   }
 
   public static void start(int port) {
+    PORT = port;
     HttpServer server;
     System.setProperty("org.eclipse.jetty.util.log.class", "org.eclipse.jetty.util.log.StdErrLog");
     System.setProperty("org.eclipse.jetty.LEVEL", "OFF");
